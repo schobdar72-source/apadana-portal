@@ -1,0 +1,70 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next-itsm-acceptance-bd4d2939b24b/types/**/*.ts",
+    ".next-itsm-acceptance-71f4e816358a/types/**/*.ts",
+    ".next-itsm-acceptance-36a1c890ca89/types/**/*.ts",
+    ".next-itsm-acceptance-65b31a29313c/types/**/*.ts",
+    ".next-itsm-acceptance-5cc0ccdc0512/types/**/*.ts",
+    ".next-itsm-acceptance-63c4fd6424ae/types/**/*.ts",
+    ".next-itsm-acceptance-c50720e88960/types/**/*.ts",
+    ".next-itsm-acceptance-ee4e01206c7b/types/**/*.ts",
+    ".next-itsm-acceptance-5f990a77d84d/types/**/*.ts",
+    ".next-itsm-acceptance-7b6b4dde23c2/types/**/*.ts",
+    ".next-itsm-acceptance-c2de6f935e7a/types/**/*.ts",
+    ".next-itsm-acceptance-e547855a0647/types/**/*.ts",
+    ".next-itsm-acceptance-f3e1f01e447b/types/**/*.ts",
+    ".next-itsm-acceptance-b3aa42dbc494/types/**/*.ts",
+    ".next-itsm-acceptance-979c1efdec21/types/**/*.ts",
+    ".next-itsm-acceptance-22053603ac5f/types/**/*.ts",
+    ".next-itsm-acceptance-06e8aea52768/types/**/*.ts",
+    ".next-itsm-acceptance-0502d62308a3/types/**/*.ts",
+    ".next-itsm-acceptance-dc9fe0f2e87c/types/**/*.ts",
+    ".next-itsm-acceptance-556e6c90b16b/types/**/*.ts",
+    ".next-itsm-acceptance-a240c15b74ad/types/**/*.ts",
+    ".next-itsm-acceptance-2155a849d6db/types/**/*.ts",
+    ".next-itsm-acceptance-2131842080f9/types/**/*.ts",
+    ".next-itsm-acceptance-4cc717a954a9/types/**/*.ts",
+    ".next-itsm-acceptance-ce1b7ea91aea/types/**/*.ts",
+    ".next-itsm-acceptance-2f1835d0dd04/types/**/*.ts",
+    ".next-itsm-acceptance-7e1aa517c123/types/**/*.ts",
+    ".next-itsm-acceptance-a21613484161/types/**/*.ts",
+    ".next-itsm-acceptance-e3746ea1c05b/types/**/*.ts",
+    ".next-itsm-acceptance-a03c527a2349/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

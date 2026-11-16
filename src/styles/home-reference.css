@@ -1,0 +1,183 @@
+/* Alternative home design inspired by the supplied mining portal reference. */
+.hp{background:linear-gradient(150deg,#f2efee 0%,#ebe9e7 55%,#f8e7cf 100%);color:#323137}
+.hp-hdr{direction:ltr;gap:16px;min-height:86px;padding:13px 3.4vw;background:linear-gradient(110deg,#f6f3f1f5,#f7f4f1ed 72%,#e5e7ebed);border:0;box-shadow:none}
+.hp-hdr>img{height:58px;background:none;padding:0;border-radius:0}.hp-brand{direction:rtl;text-align:right;border-inline-start:0;border-left:1px solid #aaa0a0;padding-left:20px;padding-inline-start:20px}.hp-brand b{color:#35343b;font-size:18px}.hp-brand small{color:#626068}.hp-hdr .wd,.hp-hdr .um{direction:rtl}
+.hp-hdr .wd{height:58px;background:#ffffffad;border:1px solid #ffffffcc;box-shadow:0 5px 18px #4d455017;color:#38373d}.hp-hdr .wd-time,.hp-hdr .wd-city{color:#37363d}.hp-hdr .wd-sub{color:#646168}.hp-hdr .wd-ico{color:#cb970e}
+.hp-hdr .ui-me{background:#fffdfadd;border-color:#ffffff;box-shadow:0 5px 18px #4d455017;color:#35343a}.hp-hdr .um-btn b{color:#343239}.hp-hdr .ui-me small,.hp-hdr .um-chev{color:#68646a}.hp-hdr .ui-me .av{background:#ebe8e5;color:#55535a;border-color:#e5b542}.hp-hdr .um-menu{direction:rtl}
+.hp-hero,.hp-hero-artwork{height:290px;margin:0 1.8vw;border-radius:20px;background-color:#e5e2de;background-size:contain;background-position:center;box-shadow:0 8px 26px #443d3c1c}
+.hp-hero:not(.hp-hero-dark):not(.hp-hero-artwork){background-position:right center}
+.hp-hero-shade{background:linear-gradient(90deg,#eae6e3 0%,#eae6e3 50%,#eae6e3bb 59%,transparent 75%)}
+.hp-hero-copy{direction:rtl;inset-inline-start:auto;left:5%;right:auto;max-width:43%;text-align:right;text-shadow:none;color:#34333b}.hp-hero-copy>span{color:#56545b;font-size:19px}.hp-hero-copy h1{font-size:clamp(36px,4.3vw,64px);margin:2px 0 6px;font-weight:700}.hp-hero-copy h1 em{font-style:normal;color:#f2ad05}.hp-hero-copy p{font-size:14px;color:#4c4950;border-top:2px solid #edb52b;padding-top:9px}
+.hp-hero-dark .hp-hero-shade{background:linear-gradient(90deg,#211f21d9,#29292c8c 38%,transparent 75%)}.hp-hero-dark .hp-hero-copy{color:#f8f6f0}.hp-hero-dark .hp-hero-copy span,.hp-hero-dark .hp-hero-copy p{color:#f2eeea}.hp-hero-artwork .hp-hero-shade{background:linear-gradient(90deg,#24232310,#24232308)}
+.hp-arrow{background:#35343dbb;border:1px solid #fff}.hp-pause{background:#34333cbd}.hp-dots button.on{background:#ffc32d}
+.hp-wrap{padding:18px 1.8vw 32px;gap:22px}.hp-card{background-color:#faf8f7ed;border:1px solid #fff9;border-radius:20px;box-shadow:0 8px 24px #5c4d4924;color:#302f35}
+.hp-services{gap:8px}.hp-section-heading{display:none}.hp-r2{grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:14px}.hp-sys{min-height:176px;padding:17px 16px 14px;align-items:center;text-align:center;justify-content:center;gap:6px;background-color:#fbf9f8f2}.hp-sys:hover{background-color:#fff;box-shadow:0 12px 26px #5c4d4933;border-color:#e8c66f}.hp-ico{width:58px;height:58px;background:linear-gradient(145deg,#edeae8,#faf9f6);border-radius:17px;color:#68636a}.hp-ico svg{width:34px;height:34px}.hp-sys b{margin-top:5px;font-size:14px}.hp-sys small{padding-inline-end:0;font-size:12px;color:#6b666a}.hp-lock{top:8px;inset-inline-end:8px;font-size:10px;background:#e8e5e3;color:#5d5960}.hp-go{bottom:11px;inset-inline-end:12px;width:27px;height:27px;background:#686368}.hp-sys:hover .hp-go{background:#d7a523}
+.hp-r1{grid-template-columns:1.45fr 1fr 1fr;gap:14px}.hp-news,.hp-meal,.hp-cal{min-height:190px;padding:21px}.hp-news{padding-top:57px}.hp-news-label{color:#2e2d33}.hp-meal-label{color:#8a6d25}.hp-cal-big{font-size:18px}.hp-card:not(.hp-sys){background-position:center;background-size:cover}.hp-person{background-color:#fbf7f2ee;min-height:130px}.hp-person img{border-color:#e4b438}.hp-person span{color:#876019}
+.hp-external-news{background:#4c4a50e8;border:1px solid #ffffff80;border-radius:30px;box-shadow:0 8px 24px #514c4820}
+.hp-footer{background:#3d3a40;color:#eee8e1;border-color:#e5ad22}
+@media(max-width:1200px){.hp-r2{grid-template-columns:repeat(3,minmax(0,1fr))!important}.hp-hdr{gap:10px}.hp-brand b{font-size:15px}.hp-brand small{font-size:11px}}
+@media(max-width:800px){.hp-hdr{flex-wrap:wrap;padding:12px 4vw}.hp-hdr .hp-sp{display:none}.hp-hdr>img{height:47px}.hp-brand{padding-left:12px}.hp-hero{height:230px;margin:0 4vw}.hp-hero-copy{left:10%;max-width:60%}.hp-hero-copy>span{font-size:15px}.hp-hero-copy h1{font-size:36px}.hp-wrap{padding:15px 4vw 28px;gap:14px}.hp-r1,.hp-r1.hp-r1-extra-1{grid-template-columns:1fr 1fr}.hp-news{grid-column:1/-1}.hp-cal{grid-column:auto}}
+@media(max-width:600px){.hp-hdr .wd{height:52px}.hp-hdr .um{max-width:100%}.hp-hero{height:190px}.hp-hero-copy{left:48px;max-width:calc(100% - 96px)}.hp-hero-copy h1{font-size:28px}.hp-hero-copy>span{font-size:12px}.hp-hero-copy p{font-size:11px}.hp-r2{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px}.hp-sys{min-height:150px;padding:16px 12px}.hp-r1,.hp-r1.hp-r1-extra-1,.hp-r3{grid-template-columns:1fr}.hp-news{grid-column:auto}.hp-news,.hp-meal,.hp-cal{min-height:155px;padding:18px}.hp-news{padding-top:54px}.hp-footer{padding:20px 4vw}}
+@media(max-width:380px){.hp-r2{grid-template-columns:repeat(2,minmax(0,1fr))!important}.hp-sys b{font-size:12px}.hp-sys small{font-size:11px}}
+@media(max-width:600px){.hp-hero:not(.hp-hero-dark):not(.hp-hero-artwork) .hp-hero-copy{background:#f8f4eee6;border-radius:12px;padding:8px 10px}.hp-sys small{padding-inline-end:25px}}
+
+/* Mining dashboard: the information cards follow the Figma layout while
+   retaining the independently configurable portal widgets. */
+.hp{background:linear-gradient(145deg,#e9e9ed 0%,#f1eeee 50%,#faead3 100%)}
+.hp-hdr{background:linear-gradient(105deg,#f7f5f3 5%,#f7f3ef 68%,#e8edf2)}
+.hp-hero:not(.hp-hero-dark):not(.hp-hero-artwork){background-size:contain;background-position:right center;background-color:#f2e9e0}
+.hp-hero:not(.hp-hero-dark):not(.hp-hero-artwork) .hp-hero-shade{background:linear-gradient(90deg,#f5eee7ee 0%,#f5eee7d9 28%,#f5eee78c 43%,transparent 65%)}
+.hp-wrap{gap:18px}
+.hp-sys{box-shadow:0 7px 17px #4e403b20}
+.hp-sys .hp-ico{background:linear-gradient(145deg,#eeeae6,#fffdf9);color:#514f56}
+.hp-sys .hp-ico svg{stroke-width:2}
+.hp-dashboard-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;align-items:stretch}
+.hp-dashboard-grid>.hp-card{min-width:0;min-height:205px}
+.hp-dashboard-grid .hp-person{padding:20px;align-items:center;background-color:#fff9f0}
+.hp-dashboard-grid .hp-person img{width:78px;height:78px}
+.hp-dashboard-grid .hp-person span{font-size:14px;color:#65512b}
+.hp-dashboard-grid .hp-person b{font-size:15px}
+.hp-dashboard-grid .hp-news{flex-direction:row}
+.hp-dashboard-grid .hp-news-img{width:35%;height:auto;min-height:110px}
+.hp-dashboard-grid .hp-cal{grid-column:auto}
+.hp-r3-single .hp-person{padding:18px 20px}
+.hp-external-news{border-radius:22px;background:#44434bf2}
+@media(min-width:1300px){.hp-dashboard-grid{grid-template-columns:repeat(auto-fit,minmax(235px,1fr))}}
+@media(max-width:800px){.hp-dashboard-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hp-dashboard-grid>.hp-card{min-height:180px}.hp-dashboard-grid .hp-news{grid-column:1/-1}}
+@media(max-width:600px){.hp-hero:not(.hp-hero-dark):not(.hp-hero-artwork){background-size:contain;background-position:center}.hp-hero:not(.hp-hero-dark):not(.hp-hero-artwork) .hp-hero-shade{background:linear-gradient(90deg,#f5eee7c9,transparent)}.hp-dashboard-grid{grid-template-columns:1fr}.hp-dashboard-grid .hp-news{grid-column:auto}.hp-dashboard-grid>.hp-card{min-height:155px}.hp-dashboard-grid .hp-person{padding:18px}}
+
+/* The banner and announcements share the first row; shortcuts can grow. */
+.hp-feature-row{display:grid;grid-template-columns:minmax(0,2fr) minmax(270px,1fr);gap:14px;margin:0 1.8vw;align-items:stretch}
+.hp-feature-row .hp-hero{margin:0;min-width:0;height:290px}
+.hp-feature-row .hp-news{min-width:0;min-height:290px;overflow:hidden}
+.hp-feature-row .hp-news-img{object-fit:cover;min-width:0}
+.hp-feature-row .hp-news-body{min-width:0;overflow-wrap:anywhere}
+.hp-feature-row .hp-hero-copy{max-width:52%}
+.hp-feature-row .hp-hero-copy h1{font-size:clamp(30px,3.5vw,56px)}
+.hp-r2.hp-r2-many{grid-template-columns:repeat(auto-fit,minmax(135px,1fr))!important}
+.hp-r2-many .hp-sys{min-height:188px;padding-bottom:32px}
+.hp-r2-many .hp-sys small{line-height:1.5;overflow-wrap:anywhere}
+.hp-birthday{position:relative;overflow:hidden;isolation:isolate}
+.hp-birthday::before{content:"";position:absolute;z-index:-1;left:4px;bottom:-8px;width:90px;height:135px;background:url('/assets/birthday-balloons.svg') left bottom/contain no-repeat;opacity:.75;pointer-events:none}
+.hp-birthday::after{content:"";position:absolute;top:7px;right:14px;width:24px;height:24px;background:url('/assets/birthday-cake-icon.svg') center/contain no-repeat;pointer-events:none}
+.hp-dashboard-grid .hp-birthday{padding-top:24px}
+.hp-birthday>div{min-width:0;text-shadow:0 1px 3px #fffaf4}
+.hp-hire{position:relative;overflow:hidden;isolation:isolate}
+.hp-hire::before{content:"";position:absolute;z-index:-1;left:0;bottom:0;width:45%;height:90%;background:url('/assets/new-colleague-ornament.svg') left bottom/contain no-repeat;pointer-events:none}
+.hp-hire::after{content:"";position:absolute;top:8px;right:12px;width:32px;height:32px;background:url('/assets/new-colleague-icon.svg') center/contain no-repeat;pointer-events:none}
+.hp-dashboard-grid .hp-hire{padding-top:24px}
+.hp-hire>div{min-width:0;text-shadow:0 1px 3px #fffaf4}
+.hp-dashboard-grid .hp-cal{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;align-items:stretch;min-width:0;text-align:center;background-color:#faf7f5}
+.hp-cal::before{content:"";position:absolute;z-index:-1;left:0;bottom:0;width:45%;height:70%;background:url('/assets/calendar-silhouette.svg') left bottom/contain no-repeat;opacity:.14;pointer-events:none}
+.hp-cal-t{justify-content:flex-start;gap:9px;text-align:right;font-size:16px;color:#37353b}
+.hp-cal-t svg{flex:none;color:#555159}
+.hp-cal-big{margin:15px 0 2px;font-size:18px;line-height:1.7;color:#343239}
+.hp-cal-sub{font-size:14px;line-height:1.6;color:#68636b}
+.hp-cal-gregorian{font-size:11px;opacity:.8}
+.hp-cal-ev{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:auto;padding:5px 9px;border:1px solid #efb426;border-radius:30px;background:#fff0cbd9;color:#50412a;font-size:11px;line-height:1.6;overflow-wrap:anywhere}
+.hp-cal-dot{width:8px;height:8px;flex:none;border-radius:50%;background:#343033}
+/* A compact, content-driven information row; longer text can still expand it. */
+.hp-dashboard-grid>.hp-card{min-height:170px}
+.hp-dashboard-grid .hp-person,.hp-dashboard-grid .hp-cal,.hp-dashboard-grid .hp-meal{padding:14px 16px}
+.hp-cal-big{margin:7px 0 0;line-height:1.5}
+.hp-cal-sub{line-height:1.4}
+.hp-cal-ev{padding:3px 9px;line-height:1.45}
+.hp-dashboard-grid .hp-meal{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;align-items:stretch;text-align:center;background-color:#fff9f0}
+.hp-meal::before{content:"";position:absolute;z-index:-1;left:0;bottom:0;width:40%;height:75%;background:url('/assets/meal-ornament.svg') left bottom/contain no-repeat;opacity:.26;pointer-events:none}
+.hp-meal-label{margin-top:6px;font-size:11px}
+.hp-meal p{margin:4px 0;font-size:13px;line-height:1.5}
+.hp-meal ul{margin:3px 0;padding:0;list-style:none;line-height:1.6;font-size:13px;overflow-wrap:anywhere}
+.hp-meal .hp-more{align-self:center;margin-top:auto;padding:3px 12px;border:1px solid #efb426;border-radius:30px;background:#fff0cbd9;font-size:11px;line-height:1.5;text-decoration:none}
+.hp-meal .hp-more:hover{background:#ffe3a3}
+@media(max-width:600px){.hp-dashboard-grid>.hp-card{min-height:155px}}
+@media(max-width:400px){.hp-birthday::before{width:78px;height:115px;opacity:.55}}
+@media(max-width:1000px){.hp-feature-row{grid-template-columns:minmax(0,1.5fr) minmax(230px,1fr)}.hp-r2.hp-r2-many{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
+@media(max-width:800px){.hp-feature-row{margin:0 4vw;grid-template-columns:1fr}.hp-feature-row .hp-hero{height:230px}.hp-feature-row .hp-news{min-height:180px;grid-column:auto}.hp-feature-row .hp-hero-copy{max-width:60%}.hp-r2.hp-r2-many{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:600px){.hp-feature-row .hp-hero{height:190px}.hp-feature-row .hp-hero-copy{max-width:calc(100% - 96px)}.hp-feature-row .hp-hero-copy h1{font-size:28px}.hp-feature-row .hp-news{min-height:155px}.hp-feature-row .hp-news-img{width:35%;height:auto}}
+
+/* Readable shortcuts and a useful empty state for announcements. */
+.hp-hero{transition:none}
+.hp-news-empty{width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;text-align:center;color:#65616a}
+.hp-news-empty .hp-empty{margin:4px 0 0;font-size:14px}
+.hp-news-empty small{font-size:12px;line-height:1.7;color:#716c70}
+.hp-news-empty-icon{display:grid;place-items:center;width:58px;height:58px;border-radius:18px;color:#b58c35;background:#f4ead6}
+.hp-feature-row .hp-news-body h3{font-size:16px;line-height:1.6;overflow-wrap:anywhere}
+.hp-feature-row .hp-news-body p{font-size:13px;line-height:1.7;overflow-wrap:anywhere}
+.hp-feature-row .hp-news-body .hp-more{display:inline-block;margin-top:8px;font-size:12px;font-weight:700}
+.hp-feature-row .hp-news{overflow:visible}
+.hp-feature-row .hp-hero{height:100%;min-height:290px}
+.hp-r2-many .hp-sys{padding:14px 10px 38px;min-height:190px}
+.hp-r2-many .hp-sys small{font-size:12px;color:#5c585f;line-height:1.6;max-width:100%;padding:0 3px}
+.hp-r2-many .hp-sys b{line-height:1.55;overflow-wrap:anywhere}
+.hp-r2-many .hp-go{bottom:9px;inset-inline-end:10px}
+.hp-cal-ev{font-size:12px;line-height:1.55}
+.hp-meal ul{line-height:1.65}
+/* Compact news strip while retaining its controls and update status. */
+.hp-external-news{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 18px}
+.hp-external-head{border:0;padding:0}.hp-external-head h2{font-size:14px;white-space:nowrap}.hp-external-head>small{display:none}
+.hp-external-slide{min-width:0;min-height:0;padding:0;align-items:center}.hp-external-slide a{font-size:13px;overflow-wrap:anywhere}.hp-external-slide time{display:none}
+.hp-external-bottom{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:5px}.hp-external-meta{font-size:10px}.hp-external-controls{font-size:11px}.hp-external-controls button{height:28px;min-width:28px}
+.hp-external-message{margin:0;font-size:13px}
+@media(max-width:900px){.hp-external-news{grid-template-columns:auto minmax(0,1fr)}.hp-external-bottom{grid-column:1/-1;justify-content:space-between}}
+@media(max-width:800px){.hp-feature-row .hp-hero{height:230px;min-height:0}}
+@media(max-width:600px){.hp-news-empty-icon{width:46px;height:46px}.hp-news-empty-icon svg{width:30px;height:30px}.hp-feature-row .hp-news{min-height:165px}.hp-feature-row .hp-hero{height:190px}.hp-external-news{gap:8px;padding:12px 14px;border-radius:18px}.hp-external-slide a{font-size:12px}.hp-r2-many .hp-sys{min-height:165px}}
+
+/* A quiet mineral-grey backdrop gives the light cards more separation. */
+.hp{
+  background-color:#62686b;
+  background-image:
+    radial-gradient(ellipse at 8% 13%,#c4cace24 0,transparent 37%),
+    radial-gradient(ellipse at 92% 75%,#d6b8661a 0,transparent 36%),
+    repeating-linear-gradient(135deg,transparent 0 138px,#ffffff09 139px 140px,transparent 141px 278px),
+    linear-gradient(145deg,#697075 0%,#535a5e 48%,#697072 100%);
+}
+.hp-hdr{background:linear-gradient(110deg,#61686cf2,#51585cf5 64%,#626a6df2);box-shadow:0 4px 16px #22292a24}
+.hp-hdr>img{background:#f4f3eff2;border-radius:10px;padding:5px 9px}
+.hp-brand{border-left-color:#cbd0ce88}
+.hp-brand b{color:#fafaf7}.hp-brand small{color:#e1e4e1}
+.hp-card{box-shadow:0 8px 24px #171c1e30}
+.hp-external-news{box-shadow:0 8px 22px #171c1e30}
+.hp-sample{color:#f1f1ed}
+
+/* Equal-sized header widgets on the home page. */
+.hp-hdr .wd,.hp-hdr .um{width:200px;max-width:100%;box-sizing:border-box}
+.hp-hdr .wd,.hp-hdr .um-btn{height:70px;min-height:70px;box-sizing:border-box}
+.hp-hdr .um-btn{width:100%;height:auto}
+.hp-hdr .um-btn>span:not(.av){min-width:0}
+.hp-hdr .um-btn b,.hp-hdr .um-btn small{overflow:hidden;text-overflow:ellipsis}
+.hp-hdr .um-btn b{white-space:normal;overflow:visible;overflow-wrap:anywhere;line-height:1.35;font-size:12px}
+.hp-hdr .um-btn small{display:block;white-space:normal;line-height:1.35}
+.hp-hdr .um-btn .av{width:42px;height:42px;flex-basis:42px}
+@media(max-width:800px){.hp-hdr .wd,.hp-hdr .um{width:min(200px,100%)}.hp-hdr .wd,.hp-hdr .um-btn{height:60px;min-height:60px}.hp-hdr .um-btn{height:auto}}
+
+/* Shorter service tiles while leaving room for descriptions and the arrow. */
+.hp-r2 .hp-sys{min-height:172px;padding:10px 10px 43px;gap:3px}
+.hp-r2 .hp-ico{width:48px;height:48px}
+.hp-r2 .hp-ico svg{width:29px;height:29px}
+.hp-r2 .hp-sys b{margin-top:3px}
+@media(max-width:600px){.hp-r2 .hp-sys{min-height:158px;padding-bottom:40px}}
+
+/* Each shortcut gets a quiet illustration based on its configured icon. */
+.hp-sys{isolation:isolate}
+.hp-sys{background-image:none}
+.hp-sys-art{position:absolute;z-index:-1;inset-inline-start:-17px;bottom:-18px;width:100px;height:100px;display:grid;place-items:center;transform:rotate(-14deg);color:#b8974d;opacity:.13;pointer-events:none}
+.hp-sys-art svg{width:100%;height:100%;stroke-width:1.2}
+.hp-sys::after{content:"";position:absolute;z-index:-1;inset-inline-end:-32px;top:-35px;width:85px;height:85px;border:1px solid #dcb65a55;border-radius:50%;box-shadow:0 0 0 10px #e0be6a0c,0 0 0 20px #e0be6a0c;pointer-events:none}
+.hp-cal-ev{min-width:0;padding:3px 8px;font-size:11px;white-space:nowrap}
+.hp-cal-ev>span:last-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hp-external-icon{display:inline-block;color:#ef4545;animation:hp-news-pulse 1.5s ease-in-out infinite}
+.hp-external-news{margin-top:5px}
+.hp-external-category{flex:none;color:#eac56b;font-size:11px;white-space:nowrap}
+.hp-external-slide{justify-content:flex-start;gap:10px}
+@keyframes hp-news-pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@media(prefers-reduced-motion:reduce){.hp-external-icon{animation:none}}
+
+/* Keep the dashboard compact on shorter desktop screens; content can still grow. */
+@media(min-width:1001px) and (max-height:900px){
+  .hp-hdr{min-height:76px;padding-top:8px;padding-bottom:8px}
+  .hp-feature-row .hp-hero{min-height:0;height:clamp(190px,25vh,235px)}
+  .hp-feature-row .hp-pause{top:10px;bottom:auto}
+  .hp-feature-row .hp-news{min-height:0}
+  .hp-wrap{padding-top:12px;padding-bottom:12px;gap:12px}
+  .hp-dashboard-grid>.hp-card{min-height:155px}
+}

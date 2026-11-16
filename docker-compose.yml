@@ -1,0 +1,17 @@
+# رمز را در فایل .env (کنار همین فایل) با نام POSTGRES_PASSWORD تعریف کنید.
+services:
+  db:
+    image: postgres:16
+    container_name: apadana-pg
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD در .env تعریف نشده}
+      POSTGRES_DB: apadana
+    ports:
+      - "5432:5432"
+    volumes:
+      - apadana_pgdata:/var/lib/postgresql/data
+
+volumes:
+  apadana_pgdata:

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مدیریت لابی - منبع و نمایش (نمونه)</title>
+<style>
+  @font-face { font-family: 'Vazirmatn'; src: local('Vazirmatn'); }
+  :root {
+    --yellow: #FFC52E; --yellow-text: #B88100; --charcoal: #2B2B2F;
+    --ink: #1E1E21; --muted: #6B6B73; --line: #E6E6EA; --bg: #F5F4F0;
+    --ok: #1E7B45; --bad: #B3261E;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Vazirmatn', Tahoma, sans-serif; background: var(--bg); color: var(--ink); display: flex; min-height: 100vh; }
+  aside { width: 240px; background: var(--charcoal); color: #fff; padding: 20px 14px; }
+  aside .brand { font-weight: 700; color: var(--yellow); margin-bottom: 24px; }
+  aside a { display: block; padding: 10px 12px; border-radius: 8px; color: #D8D8DC; text-decoration: none; margin-bottom: 4px; }
+  aside a.active { background: rgba(255,197,46,.15); color: var(--yellow); font-weight: 600; }
+  main { flex: 1; padding: 28px 32px; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  .sub { color: var(--muted); font-size: 14px; margin-bottom: 22px; }
+  .notice { background: #FFF6DB; border: 1px solid #F3D98A; color: #6B4E00; padding: 10px 14px; border-radius: 10px; font-size: 13px; margin-bottom: 20px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+  .card.wide { grid-column: 1 / -1; }
+  .card h2 { font-size: 16px; margin: 0 0 14px; display: flex; justify-content: space-between; align-items: center; }
+  .tag { font-size: 12px; padding: 3px 9px; border-radius: 999px; font-weight: 600; }
+  .tag.ok { background: #E3F4EA; color: var(--ok); }
+  .tag.bad { background: #FBE6E4; color: var(--bad); }
+  .tag.off { background: #ECECEF; color: var(--muted); }
+  .row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-top: 1px solid var(--line); gap: 16px; }
+  .row:first-of-type { border-top: 0; }
+  .row .label { font-weight: 600; font-size: 14px; }
+  .row .hint { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .switch { position: relative; width: 46px; height: 26px; flex: none; }
+  .switch input { opacity: 0; width: 0; height: 0; }
+  .slider { position: absolute; inset: 0; background: #C9C9CF; border-radius: 999px; transition: .2s; cursor: pointer; }
+  .slider::before { content: ""; position: absolute; width: 20px; height: 20px; right: 3px; top: 3px; background: #fff; border-radius: 50%; transition: .2s; }
+  .switch input:checked + .slider { background: var(--yellow); }
+  .switch input:checked + .slider::before { transform: translateX(-20px); }
+  .radio-group { display: grid; gap: 8px; }
+  .radio { display: flex; align-items: center; gap: 10px; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; cursor: pointer; }
+  .radio.sel { border-color: var(--yellow); background: #FFFBEF; }
+  .radio small { color: var(--muted); display: block; }
+  .key-box { display: flex; gap: 10px; align-items: center; margin-top: 10px; }
+  .key-box input[type=password] { flex: 1; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; font-family: inherit; direction: ltr; text-align: left; background: #FAFAFB; }
+  button { font-family: inherit; border: 0; border-radius: 8px; padding: 9px 16px; font-weight: 600; cursor: pointer; }
+  .btn-y { background: var(--yellow); color: var(--ink); }
+  .btn-g { background: #ECECEF; color: var(--ink); }
+  .meta { font-size: 13px; color: var(--muted); line-height: 1.9; }
+  .meta b { color: var(--ink); font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: right; padding: 9px 8px; border-top: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; }
+  .ltr { direction: ltr; display: inline-block; }
+</style>
+</head>
+<body>
+<aside>
+  <div class="brand">آپادانا کاوش ایرانیان</div>
+  <a href="#">داشبورد</a>
+  <a href="#">مدیریت لابی</a>
+  <a href="#" class="active">منبع و نمایش</a>
+  <a href="#">پیام‌ها و اعلان‌ها</a>
+  <a href="#">گزارش‌ها</a>
+</aside>
+
+<main>
+  <h1>مدیریت لابی - منبع و نمایش</h1>
+  <div class="sub">دسترسی: مدیر روابط عمومی و کارشناس روابط عمومی · تغییرات ثبت می‌شود</div>
+  <div class="notice">داده‌ی نمونه است. کلیدها در این نما واقعی نیستند و هیچ اتصالی برقرار نمی‌شود.</div>
+
+  <div class="grid">
+
+    <section class="card">
+      <h2>نمایش در لابی <span class="tag ok">روشن</span></h2>
+      <div class="row">
+        <div><div class="label">نوار ارز و طلا</div><div class="hint">قیمت‌ها به تومان</div></div>
+        <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+      </div>
+      <div class="row">
+        <div><div class="label">اخبار مهم</div><div class="hint">نمایش در نوار پایین و هشدار فوری</div></div>
+        <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+      </div>
+      <div class="row">
+        <div><div class="label">تولد همکاران</div><div class="hint">بخش پایین صفحه</div></div>
+        <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+      </div>
+    </section>
+
+    <section class="card wide">
+      <h2>اطلاعیه‌ها و اخبار سازمان</h2>
+      <table>
+        <thead>
+          <tr><th>عنوان</th><th>نمایش در پرتال</th><th>نمایش در لابی</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>تعطیلی ادارات روز ۲۰ آبان (نمونه)</td>
+            <td><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></td>
+            <td><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></td>
+          </tr>
+          <tr>
+            <td>برنامه‌ی آموزش ایمنی آذر (نمونه)</td>
+            <td><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></td>
+            <td><label class="switch"><input type="checkbox"><span class="slider"></span></label></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>منبع فعال ارز و طلا <span class="tag ok">متصل</span></h2>
+      <div class="radio-group">
+        <label class="radio sel">
+          <input type="radio" name="src" checked>
+          <div>Navasan<small>منبع اصلی · کلید روی سرور</small></div>
+        </label>
+        <label class="radio">
+          <input type="radio" name="src">
+          <div>AlanChand<small>منبع پشتیبان · شرایط هنوز تأیید نشده</small></div>
+        </label>
+      </div>
+    </section>
+
+    <section class="card wide">
+      <h2>کلیدهای API <span class="tag off">کلید در مرورگر نمایش داده نمی‌شود</span></h2>
+      <table>
+        <thead>
+          <tr><th>منبع</th><th>وضعیت کلید</th><th>فعال</th><th>تغییر کلید</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Navasan</td>
+            <td><span class="ltr">••••••••  ۴f2a</span> <span class="tag ok">ذخیره‌شده</span></td>
+            <td><label class="switch"><input type="checkbox" checked><span class="slider"></span></label></td>
+            <td><button class="btn-g">جایگزینی کلید</button></td>
+          </tr>
+          <tr>
+            <td>AlanChand</td>
+            <td><span class="tag off">ثبت نشده</span></td>
+            <td><label class="switch"><input type="checkbox"><span class="slider"></span></label></td>
+            <td><button class="btn-g">ثبت کلید</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="hint" style="font-size:12px;color:var(--muted);margin-top:10px">
+        کلید پس از ذخیره دوباره نمایش داده نمی‌شود. خاموش کردن کلید، اتصال آن منبع را قطع می‌کند و لابی از «آخرین قیمت با زمان» استفاده می‌کند.
+      </div>
+    </section>
+
+    <section class="card wide">
+      <h2>وضعیت همگام‌سازی</h2>
+      <div class="meta">
+        آخرین دریافت موفق: <b>۱۷ آبان ۱۴۰۵، ساعت ۱۰:۴۲</b><br>
+        آخرین خطا: <b>ندارد</b><br>
+        قیمت دلار نمایشی: <b>۲۶۷,۰۰۰ تومان</b> · سکه امامی: <b>۲۶۳,۹۰۰,۰۰۰ تومان</b> (نمونه)
+      </div>
+    </section>
+
+  </div>
+</main>
+</body>
+</html>

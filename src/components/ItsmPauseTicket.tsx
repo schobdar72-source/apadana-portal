@@ -1,0 +1,8 @@
+"use client";
+import { useState } from 'react';
+import { itsmNotify } from '@/components/ItsmFeedback';
+export function ItsmPauseTicket({ticketId,onDone}:{ticketId:number;onDone:()=>Promise<void>}){
+ const [open,setOpen]=useState(false),[pauseReason,setPauseReason]=useState(''),[reason,setReason]=useState(''),[busy,setBusy]=useState(false);
+ async function submit(){setBusy(true);try{const r=await fetch(`/api/itsm/tickets/${ticketId}/transition`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({status:'waiting_user',pauseReason,reason})});const data=await r.json();if(!r.ok)throw Error(data.error);setOpen(false);itsmNotify('تیکت در حالت «در انتظار پاسخ» ثبت شد.');await onDone()}catch(e){itsmNotify(e instanceof Error?e.message:'ثبت انجام نشد.','err')}finally{setBusy(false)}}
+ return <div className="itsm-pause-ticket"><button type="button" className="itsm-secondary" onClick={()=>setOpen(!open)} aria-expanded={open}>در انتظار پاسخ</button>{open&&<div className="itsm-repair-form"><label>دلیل انتظار<select value={pauseReason} onChange={e=>setPauseReason(e.target.value)}><option value="">انتخاب کنید</option><option value="info">نیاز به اطلاعات بیشتر</option><option value="approval">در انتظار تأیید کاربر</option><option value="access">در انتظار دسترسی کاربر</option><option value="other">سایر</option></select></label><label>پیام برای درخواست‌کننده (الزامی)<textarea rows={2} maxLength={500} value={reason} onChange={e=>setReason(e.target.value)}/></label><button type="button" className="itsm-primary" disabled={busy||!pauseReason||!reason.trim()} onClick={()=>void submit()}>ارسال پیام و ثبت انتظار</button></div>}</div>;
+}

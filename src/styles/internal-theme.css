@@ -1,0 +1,98 @@
+/* Shared visual identity for pages inside AppShell. The home and login pages
+   deliberately live outside this scope. */
+.ui-app {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at 12% 0%, #808a90 0, transparent 35%),
+    radial-gradient(ellipse at 90% 90%, #827b6c 0, transparent 36%),
+    repeating-linear-gradient(135deg, transparent 0 110px, #ffffff0b 111px 112px, transparent 113px 220px),
+    linear-gradient(145deg, #697279, #535b60 70%, #62696a);
+}
+.ui-app .ui-col { min-width: 0; background: transparent; }
+.ui-app .ui-hdr {
+  min-height: 98px;
+  padding: 12px 24px;
+  box-sizing: border-box;
+  background: radial-gradient(ellipse at 85% 0%, #e1ba5b30, transparent 38%),
+    repeating-linear-gradient(135deg, transparent 0 80px, #ffffff0b 81px 82px, transparent 83px 160px),
+    linear-gradient(105deg, #4c565b, #697173 65%, #555e60);
+  border-bottom: 1px solid #eac25c55;
+  box-shadow: 0 8px 24px #1112;
+}
+.ui-app .ui-hdr > img {
+  height: 58px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+  box-sizing: border-box;
+  padding: 5px 9px;
+  border: 1px solid #ffffffc9;
+  border-radius: 10px;
+  background: #f4f3eff2;
+  box-shadow: 0 4px 12px #23292b24;
+}
+.ui-app .ui-hdr .ui-brand { color: #f7f5ef; }
+.ui-app .ui-hdr .wd,
+.ui-app .ui-hdr .um { width: 190px; max-width: 100%; min-width: 0; box-sizing: border-box; }
+.ui-app .ui-hdr .wd,
+.ui-app .ui-hdr .um-btn { height: 70px; min-height: 70px; box-sizing: border-box; }
+.ui-app .ui-hdr .um-btn { width: 100%; height: auto; }
+.ui-app .ui-hdr .um-btn > span:not(.av) { min-width: 0; }
+.ui-app .ui-hdr .um-btn b,
+.ui-app .ui-hdr .um-btn small { overflow: hidden; text-overflow: ellipsis; }
+.ui-app .ui-hdr .um-btn b { white-space: normal; overflow: visible; overflow-wrap: anywhere; line-height: 1.35; font-size: 12px; }
+.ui-app .ui-hdr .um-btn small { display: block; white-space: normal; line-height: 1.35; }
+.ui-app .ui-hdr .um-btn .av { width: 42px; height: 42px; flex-basis: 42px; }
+.ui-app .sb {
+  background: radial-gradient(ellipse at 15% 95%, #ddba6130, transparent 40%),
+    repeating-linear-gradient(145deg, transparent 0 88px, #ffffff0a 89px 90px, transparent 91px 176px),
+    linear-gradient(170deg, #586166, #424a4e 70%, #514e45);
+  border-inline-end: 1px solid #ffffff20;
+  box-shadow: -8px 0 25px #1113;
+}
+.ui-app .sb-top { border-bottom: 1px solid #ffffff1c; }
+.ui-app .sb-item { border-radius: 10px; transition: background .18s, color .18s; }
+.ui-app .sb-item:hover { background: #ffffff14; }
+.ui-app .sb-item.open { background: #ffca3924; color: #ffdb75; }
+.ui-app .sb-item.open .ico { color: #ffcf50; filter: none; }
+.ui-app .sb-mobile-toggle { display: none; }
+.ui-app .ui-card, .ui-app .cz-card, .ui-app .cz-panel, .ui-app .hc-section,
+.ui-app .ui-kpi, .ui-app .pp-stat {
+  background-color: #f6f4f0;
+  border-color: #ffffff8c;
+  box-shadow: 0 8px 22px #171b1d24;
+}
+.ui-app .cz-card, .ui-app .cz-panel, .ui-app .hc-section { color: #29282b; }
+.ui-app .cz-lead { color: #e6e4df; }
+.ui-app .ui-btn {
+  border-radius: 10px;
+  transition: background-color .18s, border-color .18s, transform .18s;
+}
+.ui-app .ui-btn:hover { transform: translateY(-1px); }
+.ui-app :is(button, a, input, select, textarea):focus-visible {
+  outline: 3px solid #e7b335;
+  outline-offset: 2px;
+}
+.ui-app :is(input, select, textarea) { accent-color: #d9a519; }
+.ui-app .ui-col main { min-width: 0; }
+
+@media (max-width: 1000px) {
+  .ui-app { grid-template-columns: minmax(0, 1fr); }
+  .ui-app .sb { position: relative; width: 100%; height: auto; min-height: 0; }
+  .ui-app .sb-mobile-toggle {
+    display: flex; align-items: center; gap: 10px; width: calc(100% - 24px);
+    margin: 10px 12px; padding: 10px 14px; border: 1px solid #ffffff30;
+    border-radius: 10px; background: #ffffff10; color: #fff; font: inherit;
+    text-align: start; cursor: pointer;
+  }
+  .ui-app .sb-mobile-toggle span:last-child { margin-inline-start: auto; color: #ffcf50; }
+  .ui-app .sb:not(.sb-mobile-open) .sb-nav { display: none; }
+}
+@media (max-width: 600px) {
+  .ui-app .ui-hdr { gap: 10px; min-height: 0; margin-inline: -3.5vw; padding: 12px 16px; flex-wrap: wrap; }
+  .ui-app .ui-hdr > img { height: 48px; }
+  .ui-app .ui-hdr .ui-sp { display: none; }
+  .ui-app .ui-hdr .wd, .ui-app .ui-hdr .um { width: min(190px, calc((100vw - 52px) / 2)); }
+  .ui-app .ui-hdr .wd, .ui-app .ui-hdr .um-btn { height: 64px; min-height: 64px; }
+  .ui-app .ui-hdr .um-btn { height: auto; }
+  .ui-app .ui-card, .ui-app .cz-panel, .ui-app .hc-section { border-radius: 14px; }
+}

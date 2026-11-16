@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920, initial-scale=1">
+<title>لابی - موکاپ ۱۶:۹</title>
+<style>
+  @font-face { font-family: "Vazirmatn"; src: local("Vazirmatn"); }
+  :root{
+    --yellow:#FFC52E; --yellow-text:#B88100; --charcoal:#2B2D31; --ink:#1E1E21;
+    --muted:#6B6F76; --card:#FFFFFF; --line:#E6E3DC; --red:#D32F2F; --bg:#EEF0F2;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg);font-family:"Vazirmatn",Tahoma,sans-serif;color:var(--ink)}
+  .screen{width:1920px;height:1080px;display:grid;grid-template-rows:150px 560px 1fr 56px;gap:16px;padding:16px 24px 0}
+  .sample{position:absolute;top:6px;left:8px;font-size:12px;background:#fff3c4;color:#7a5600;padding:2px 8px;border-radius:6px;z-index:9}
+
+  /* header */
+  .head{display:flex;align-items:center;gap:28px;background:var(--charcoal);border-radius:14px;padding:0 36px;color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.12)}
+  .head img{height:96px;width:auto;background:#fff;border-radius:10px;padding:8px}
+  .welcome{font-size:44px;font-weight:700;line-height:1.3}
+  .welcome small{display:block;font-size:22px;font-weight:400;color:#C9CCD2;margin-top:4px}
+  .hdr-accent{margin-right:auto;width:8px;height:88px;background:var(--yellow);border-radius:4px}
+
+  /* slider */
+  .slider{position:relative;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,#7d8794,#3d434c);box-shadow:0 6px 18px rgba(0,0,0,.12)}
+  .slide{position:absolute;inset:0;display:flex;align-items:flex-end;padding:40px 48px;color:#fff;background:linear-gradient(to top,rgba(0,0,0,.65),rgba(0,0,0,0) 60%)}
+  .slide .ph{position:absolute;inset:0;z-index:-1;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.55);font-size:26px;background:repeating-linear-gradient(45deg,#6b7480 0 20px,#5d6670 20px 40px)}
+  .slide h2{font-size:52px;font-weight:800}
+  .slide p{font-size:26px;margin-top:8px;color:#EDEFF2}
+  .dots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:10px}
+  .dots i{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.45)}
+  .dots i.on{background:var(--yellow);width:30px;border-radius:8px}
+
+  /* middle row */
+  .mid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px;min-height:0}
+  .card{background:var(--card);border-radius:14px;padding:22px 26px;box-shadow:0 3px 12px rgba(0,0,0,.06);display:flex;flex-direction:column;min-height:0;overflow:hidden}
+  .card h3{font-size:26px;font-weight:700;padding-bottom:12px;margin-bottom:12px;border-bottom:3px solid var(--yellow);display:flex;justify-content:space-between;align-items:center}
+  .card h3 .tag{font-size:14px;color:var(--yellow-text);font-weight:600}
+  .list{list-style:none;font-size:22px;line-height:1.5}
+  .list li{padding:8px 0;border-bottom:1px dashed var(--line)}
+  .list li:last-child{border-bottom:0}
+  .list b{color:var(--yellow-text);font-weight:700}
+
+  .clock{font-size:76px;font-weight:800;direction:ltr;text-align:right;line-height:1}
+  .date{font-size:26px;margin-top:10px;color:var(--ink)}
+  .occasion{font-size:22px;margin-top:14px;color:var(--muted)}
+  .weather{display:flex;align-items:center;gap:14px;margin-top:auto;font-size:24px}
+  .weather svg{width:48px;height:48px}
+  .weather .deg{font-size:40px;font-weight:800}
+
+  .rate{display:flex;justify-content:space-between;align-items:center;font-size:24px;padding:10px 0;border-bottom:1px dashed var(--line)}
+  .rate:last-of-type{border-bottom:0}
+  .rate .v{font-weight:800;font-size:30px;direction:ltr}
+  .up{color:#1B7F3B} .down{color:var(--red)}
+  .stamp{margin-top:auto;font-size:18px;color:var(--muted)}
+
+  /* bottom */
+  .bottom{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;min-height:0}
+  .news{background:var(--card);border-radius:14px;padding:22px 26px;box-shadow:0 3px 12px rgba(0,0,0,.06);overflow:hidden}
+  .news h3{font-size:26px;margin-bottom:10px}
+  .news .src{font-size:16px;color:var(--muted);margin-bottom:8px}
+  .news ul{list-style:none;font-size:23px;line-height:1.5}
+  .news li{padding:6px 0;border-bottom:1px dashed var(--line)}
+  .birthday{background:var(--card);border-radius:14px;padding:22px 26px;box-shadow:0 3px 12px rgba(0,0,0,.06)}
+  .birthday h3{font-size:26px;margin-bottom:10px}
+  .bd{display:flex;align-items:center;gap:16px;font-size:24px;margin-top:8px}
+  .bd .av{width:52px;height:52px;border-radius:50%;background:#ddd;display:flex;align-items:center;justify-content:center;font-size:20px;color:#666}
+
+  /* ticker */
+  .ticker{background:var(--charcoal);color:#fff;border-radius:12px;display:flex;align-items:center;overflow:hidden;position:relative}
+  .ticker .label{background:var(--yellow);color:var(--ink);font-weight:800;font-size:22px;padding:0 26px;height:100%;display:flex;align-items:center;z-index:2}
+  .ticker .txt{font-size:24px;white-space:nowrap;padding-right:24px}
+  .ticker .txt span{margin-left:60px}
+
+  /* urgent overlay (sample) */
+  .urgent{position:absolute;inset:0;background:rgba(20,20,22,.94);display:none;flex-direction:column;align-items:center;justify-content:center;gap:24px;z-index:20}
+  .urgent.show{display:flex}
+  .urgent .t{font-size:72px;font-weight:900;color:var(--red);text-align:center}
+  .urgent .b{font-size:36px;color:#fff;text-align:center;max-width:1300px;line-height:1.6}
+  .urgent .m{font-size:22px;color:#aaa}
+  .off-sec { display: none !important; }
+  #secpanel { position: fixed; left: 16px; bottom: 16px; width: 300px; background: #fff; color: #1E1E21; border-radius: 12px; padding: 14px 16px; box-shadow: 0 8px 24px rgba(0,0,0,.25); font-size: 14px; z-index: 50; display: none; }
+  #secpanel.show { display: block; }
+  #secpanel h4 { margin: 0 0 8px; font-size: 14px; }
+  #secpanel .r { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-top: 1px solid #E6E6EA; }
+  #secpanel .r:first-of-type { border-top: 0; }
+  #secpanel .hint { font-size: 12px; color: #6B6B73; margin-top: 8px; }
+  #secpanel input { width: 18px; height: 18px; accent-color: #FFC52E; }
+</style>
+</head>
+<body>
+<div class="sample">موکاپ - داده‌ی نمونه</div>
+
+<div class="screen">
+
+  <!-- Header: logo + fixed welcome -->
+  <header class="head">
+    <img src="../logo-refined.svg" alt="آپادانا کاوش ایرانیان">
+    <div class="welcome">به شرکت آپادانا کاوش ایرانیان خوش آمدید
+      <small>Welcome</small>
+    </div>
+  </header>
+
+  <!-- Poster slider -->
+  <section class="slider">
+    <div class="slide">
+      <div class="ph">جای‌نگهدار تصویر پوستر (بارگذاری توسط روابط عمومی)</div>
+      <div>
+        <h2>نمونه‌ی پوستر روابط عمومی</h2>
+        <p>تاریخ نمایش: ۱ تا ۳۰ آبان ۱۴۰۵ - ترتیب: ۱</p>
+      </div>
+    </div>
+    <div class="dots"><i class="on"></i><i></i><i></i><i></i></div>
+  </section>
+
+  <!-- Middle row -->
+  <section class="mid">
+    <div class="card">
+      <h3>غذای امروز <span class="tag">نمونه</span></h3>
+      <ul class="list">
+        <li>ناهار: خورش قیمه، برنج، سالاد</li>
+        <li>ناهار گیاهی: کوکو سبزی، ماست</li>
+        <li>شام: چلو مرغ، زرشک پلو</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>اطلاعیه‌ها <span class="tag">نمونه</span></h3>
+      <ul class="list">
+        <li>جلسه‌ی ایمنی: پنج‌شنبه ساعت <b>۱۰</b></li>
+        <li>تعطیلی کافه‌تریا: جمعه <b>بسته</b></li>
+        <li>مهلت ثبت مرخصی: <b>۲۰</b> آبان</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="clock">14:30</div>
+      <div class="date">شنبه ۱۷ آبان ۱۴۰۵</div>
+      <div class="occasion">مناسبت: روز نمونه‌ی تقویم</div>
+      <div class="weather">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#B88100" stroke-width="1.8"><circle cx="9" cy="9" r="4"/><path d="M9 1v2M1 9h2M3.5 3.5l1.4 1.4"/><path d="M8 19h9a4 4 0 0 0 0-8 5 5 0 0 0-9.6 1.4A3 3 0 0 0 8 19z"/></svg>
+        <div><span class="deg">۱۱°</span> یزد، آفتابی</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>نرخ ارز و طلا <span class="tag">نمونه</span></h3>
+      <div class="rate"><span>دلار</span><span class="v down">▼ ۹۲٬۴۰۰</span></div>
+      <div class="rate"><span>یورو</span><span class="v up">▲ ۱۰۰٬۱۰۰</span></div>
+      <div class="rate"><span>طلای ۱۸ عیار (گرم)</span><span class="v up">▲ ۴٬۵۰۰٬۰۰۰</span></div>
+      <div class="stamp">آخرین به‌روزرسانی: ۱۴:۲۵</div>
+    </div>
+  </section>
+
+  <!-- Bottom: news + birthdays -->
+  <section class="bottom">
+    <div class="news">
+      <h3>اخبار مهم روز <span class="tag" style="font-size:14px;color:var(--yellow-text)">نمونه - منبع: ایرنا (پس از تأیید)</span></h3>
+      <ul>
+        <li>تیتر نمونه‌ی اول خبری</li>
+        <li>تیتر نمونه‌ی دوم خبری</li>
+        <li>تیتر نمونه‌ی سوم خبری</li>
+      </ul>
+    </div>
+    <div class="birthday">
+      <h3>تولد همکاران امروز <span class="tag" style="font-size:14px;color:var(--yellow-text)">نمونه</span></h3>
+      <div class="bd"><div class="av">ن</div><div>نام نمونه - واحد معدن</div></div>
+      <div class="bd"><div class="av">ن</div><div>نام نمونه - واحد فرآوری</div></div>
+    </div>
+  </section>
+
+  <!-- Ticker -->
+  <footer class="ticker">
+    <div class="label">خبر فوری</div>
+    <div class="txt"><span>متن نمونه‌ی نوار خبری - تیتر اول</span><span>متن نمونه‌ی نوار خبری - اطلاعیه</span><span>نرخ ارز و طلا: نمونه</span></div>
+  </footer>
+
+</div>
+
+<!-- Section toggles (mockup only): press S to open/close the panel -->
+<div id="secpanel">
+  <h4>نمایش بخش‌ها در لابی (نمونه)</h4>
+  <div class="r">بخش فوتر خبر فوری <input type="checkbox" data-k="ticker" checked></div>
+  <div class="r">اسلایدر پوستر <input type="checkbox" data-k="poster" checked></div>
+  <div class="r">غذای امروز <input type="checkbox" data-k="food" checked></div>
+  <div class="r">اطلاعیه‌ها <input type="checkbox" data-k="notices" checked></div>
+  <div class="r">ساعت و تاریخ <input type="checkbox" data-k="clock" checked></div>
+  <div class="r">نرخ ارز و طلا <input type="checkbox" data-k="fx" checked></div>
+  <div class="r">اخبار مهم روز <input type="checkbox" data-k="news" checked></div>
+  <div class="r">تولد همکاران <input type="checkbox" data-k="birthday" checked></div>
+  <div class="hint">خاموش بودن بخش فقط نمایش را پنهان می‌کند؛ محتوا حذف نمی‌شود. جای بخش‌های باقی‌مانده خودکار تنظیم می‌شود.</div>
+</div>
+
+<!-- Urgent overlay sample (toggle by clicking) -->
+<div class="urgent" id="urgent" onclick="this.classList.remove('show')">
+  <div class="t">اطلاعیه‌ی فوری</div>
+  <div class="b">قطع برق موقت در ساعت ۱۶ تا ۱۷ برای تعمیرات پست برق. لطفاً کارهای خود را ذخیره کنید.</div>
+  <div class="m">نمونه - برای بستن کلیک کنید</div>
+</div>
+<script>
+  // Section toggles: map keys to elements
+  const secMap = {
+    ticker: () => document.querySelector('.ticker'),
+    poster: () => document.querySelector('.slider'),
+    food: () => document.querySelectorAll('.mid > .card')[0],
+    notices: () => document.querySelectorAll('.mid > .card')[1],
+    clock: () => document.querySelectorAll('.mid > .card')[2],
+    fx: () => document.querySelectorAll('.mid > .card')[3],
+    news: () => document.querySelector('.news'),
+    birthday: () => document.querySelector('.birthday')
+  };
+  document.querySelectorAll('#secpanel input').forEach(cb => {
+    cb.addEventListener('change', () => {
+      const el = secMap[cb.dataset.k]();
+      if (el) el.classList.toggle('off-sec', !cb.checked);
+    });
+  });
+  document.addEventListener('keydown', e => { if (e.key === 's' || e.key === 'S') document.getElementById('secpanel').classList.toggle('show'); });
+  // Mockup only: press U to show the urgent overlay sample
+  document.addEventListener('keydown', e => { if (e.key === 'u' || e.key === 'U') document.getElementById('urgent').classList.toggle('show'); });
+</script>
+</body>
+</html>

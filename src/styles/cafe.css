@@ -1,0 +1,274 @@
+/* صفحه‌ی کافی‌شاپ */
+.cafe-h{margin:0 0 14px;font-size:22px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.crumb-dark{color:rgba(255,255,255,.75)}
+.cafe-bar{height:12px;border-radius:99px;background:#EFEFF2;margin:4px 0 12px;overflow:hidden}
+.cafe-bar>div{height:100%;background:linear-gradient(90deg,#FFC52E,#FCD06C);border-radius:99px}
+.cafe-bar.over>div{background:linear-gradient(90deg,#C62828,#E53935)}
+.over-txt{color:#C62828;font-weight:700}
+.cafe-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;margin-top:16px}
+.cafe-grid>*{min-width:0}
+.cafe-today{background:#fff;border:1px solid #ECECEF;border-radius:14px;padding:14px;display:grid;gap:6px}
+.cafe-today small{color:#6B6B73;font-size:13px}
+.cafe-days{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.cafe-day{background:#fff;border:1px solid #ECECEF;border-radius:14px;padding:10px 8px;text-align:center;font-size:12px}
+.cafe-day b{display:block;margin-bottom:6px;font-size:13px}
+.cafe-day em{font-style:normal;color:#3C3C40;line-height:1.7}
+.cafe-day.today{border:2px solid #FFC52E;background:#FFFBF0}
+.cafe-day.off{opacity:.55}
+.cafe-cat h4{margin:12px 0 6px;font-size:13px;color:#6B6B73}
+.cafe-item{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#fff;border:1px solid #ECECEF;border-radius:12px;padding:8px 12px;margin-bottom:6px}
+.cafe-item small{display:block;color:#6B6B73;font-size:12px}
+.cafe-qty{display:flex;align-items:center;gap:8px}
+.cafe-qty button{width:30px;height:30px;border-radius:50%;border:1px solid #D9D9DE;background:#fff;cursor:pointer;font-size:16px}
+.cafe-qty button:hover{border-color:#FFC52E}
+.cafe-qty span{min-width:20px;text-align:center;font-variant-numeric:tabular-nums}
+.cafe-sum{display:grid;gap:8px;margin-bottom:12px}
+.cafe-sum>div{display:flex;justify-content:space-between;font-size:14px;background:#fff;border:1px solid #ECECEF;border-radius:12px;padding:10px 12px}
+.cafe-sum .warn b{color:#C62828}
+.cafe-actions{margin-top:12px}
+.cafe-done{margin:10px 0 0;font-size:13px;color:#2E7D32}
+.cafe-empty{color:#6B6B73;font-size:13px;margin:0}
+@media (max-width:1000px){.cafe-grid{grid-template-columns:1fr}.cafe-days{grid-template-columns:repeat(2,1fr)}}
+.cafe-guest{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:14px;cursor:pointer}
+.cafe-guest-name{margin-top:8px;width:100%;box-sizing:border-box;padding:8px 12px;border:1px solid #D9D9DE;border-radius:10px;font:inherit}
+
+/* مدیریت منو و برنامه‌ی غذایی (مدیر کافی‌شاپ) */
+.cafe-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.cafe-edit-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end; margin: 8px 0; }
+.cafe-edit-row > * { flex: 1 1 120px; }
+.cafe-check { display: flex; align-items: center; gap: 6px; flex: 0 0 auto !important; }
+@media (max-width: 900px) { .cafe-grid-2 { grid-template-columns: 1fr; } }
+.cafe-sub { margin: 12px 0 4px; font-size: 13px; }
+
+/* کشویی گروه (مثل کشویی شهر) */
+.cafe-gp{position:relative;display:inline-block;min-width:130px}
+.cafe-gp-btn{width:100%;border:1px solid #D6D6DC;border-radius:8px;padding:6px 10px;background:#fff;font:inherit;font-size:13px;color:#1E1E21;cursor:pointer;text-align:start;display:flex;justify-content:space-between;align-items:center;gap:6px}
+.cafe-gp-menu{position:absolute;top:calc(100% + 6px);inset-inline-start:0;min-width:100%;max-height:260px;overflow:auto;z-index:50}
+.cafe-gp-menu .wd-search{margin-bottom:4px}
+
+/* برنامه‌ی غذایی هفته: هر روز در یک ردیف */
+.cafe-plan{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,1fr);gap:20px;align-items:start;margin-bottom:12px}
+@media(max-width:1100px){.cafe-plan{grid-template-columns:minmax(0,1fr)}}
+.cafe-sides{border-inline-start:1px solid #E4E4E8;padding-inline-start:20px}
+.cafe-side-list{display:flex;flex-direction:column;gap:6px}
+.cafe-side-row{display:grid;grid-template-columns:minmax(0,1fr) 90px auto;gap:6px;align-items:center}
+.cafe-side-row input{width:100%;box-sizing:border-box;padding:7px 10px;border:1px solid #D6D6DC;border-radius:8px;font:inherit;font-size:13px}
+.cafe-week{display:flex;flex-direction:column;gap:6px}
+.cafe-week-row{display:grid;grid-template-columns:90px 190px minmax(0,1fr) 44px;gap:8px;align-items:center}
+.cafe-week-head{font-size:12px;color:#55555C;padding:0 2px}
+.cafe-week-row input[type=text],.cafe-week-row input:not([type]){width:100%;box-sizing:border-box;padding:7px 10px;border:1px solid #D6D6DC;border-radius:8px;font:inherit;font-size:13px;color:#1E1E21;background:#fff}
+.cafe-week-row input:disabled{background:#F2F2F4;color:#8A8A92}
+.cafe-week-row.is-off{opacity:.8}
+.cafe-week-off{display:flex;justify-content:center}
+
+/* ---- کارت‌های مدیریت کافی‌شاپ زیر هم، هم‌اندازه با قالب ---- */
+.cafe-stack{display:flex;flex-direction:column;gap:16px;margin-bottom:16px}
+.cafe-menu-sec{margin-bottom:16px}
+.cafe-menu-sec .cafe-sub{margin:0 0 8px}
+.cafe-menu-list{display:flex;flex-direction:column;gap:8px}
+.cafe-menu-row{display:grid;gap:8px;align-items:center}
+.cafe-menu-grp{grid-template-columns:1fr 130px}
+.cafe-menu-item{grid-template-columns:1.4fr 1fr 1fr 80px}
+.cafe-menu-head{display:grid;grid-template-columns:1.4fr 1fr 1fr 80px;gap:8px;font-size:12px;color:#55555C;padding:0 2px 6px}
+.cafe-menu-new{margin-top:10px;padding-top:12px;border-top:1px dashed #D6D6DC}
+.cafe-menu-row input{width:100%;box-sizing:border-box;padding:8px 10px;border:1px solid #D6D6DC;border-radius:8px;font:inherit;font-size:13px;color:#1E1E21;background:#fff}
+.cafe-menu-row .ui-btn{width:100%;justify-content:center}
+.cafe-menu-item .cafe-gp{min-width:0;width:100%}
+.cafe-menu-item .cafe-gp-btn{padding:8px 10px}
+.cafe-menu-item .cafe-product-description{grid-column:1/-1;background:#f7f7f5;color:#414947;font-size:12px}
+
+.cafe-save-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.cafe-save-msg{font-size:13px;font-weight:600}
+.cafe-save-msg.ok{color:#1F7A3A}
+.cafe-save-msg.err{color:#B42318}
+
+.cafe-week-meals{display:flex;gap:8px;align-items:center;min-width:0}
+.cafe-week-meals>input,.cafe-week-m2{flex:1;min-width:0}
+.cafe-week-m2{display:flex;gap:6px;align-items:center}
+.cafe-menu-side{display:grid;grid-template-columns:minmax(0,1fr) 180px auto;gap:8px;align-items:center}
+.cafe-menu-side input{width:100%;box-sizing:border-box;padding:7px 10px;border:1px solid #D6D6DC;border-radius:8px;font:inherit;font-size:13px}
+
+.cafe-week-meals{flex-direction:column;align-items:stretch}
+.cafe-meal{display:flex;gap:6px;align-items:center;min-width:0}
+.cafe-meal>input{flex:1;min-width:0}
+.cafe-side-sel{padding:7px 8px;border:1px solid #D6D6DC;border-radius:8px;font:inherit;font-size:12px;background:#fff;color:#1E1E21;cursor:pointer}
+
+.cafe-today{background:#FFF8E1;border:1px solid #F5D77A;border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:14px}
+.cafe-today span{color:#55555C}
+.cafe-tabs{display:flex;gap:6px;margin:4px 0 14px;border-bottom:1px solid #E5E5EA}
+.cafe-tabs button{border:0;background:none;padding:10px 16px;font:inherit;cursor:pointer;color:#55555C;border-bottom:3px solid transparent;margin-bottom:-1px}
+.cafe-tabs button.on{color:#1E1E21;font-weight:700;border-bottom-color:#F5B800}
+.cafe-copy{display:flex;gap:10px;align-items:center;margin-bottom:10px;font-size:12px;color:#55555C}
+.cafe-savebar{position:sticky;bottom:0;z-index:20;display:flex;gap:12px;align-items:center;justify-content:flex-end;background:#fff;border-top:1px solid #E5E5EA;box-shadow:0 -4px 14px rgba(0,0,0,.06);padding:10px 16px;margin-top:12px}
+.cafe-dirty{color:#9A6B00;font-size:13px}
+
+.cafe-meal{flex-wrap:wrap}
+.cafe-meal>input{flex:1 1 100%}
+.cafe-meal>.ui-btn,.cafe-meal>button{flex:none}
+.cafe-tabs button:focus:not(:focus-visible){outline:none}
+
+/* تب‌ها با تم تیره‌ی صفحه */
+.cafe-tabs{border-bottom-color:var(--c-border)}
+.cafe-tabs button{color:var(--c-text-muted);font-size:var(--fs-md)}
+.cafe-tabs button:hover{color:var(--c-text)}
+.cafe-tabs button.on{color:var(--c-text);font-weight:700;border-bottom-color:#F5B800}
+/* فاصله‌ی کارت‌های تب کارکنان */
+.cafe-orders{display:flex;flex-direction:column;gap:20px}
+.cafe-orders>*{margin:0!important}
+/* عنوان ستون‌ها: پررنگ و خواناتر */
+.cafe-orders .ui-table th{font-size:var(--fs-sm);font-weight:700;color:var(--c-text);white-space:nowrap}
+
+/* رنگ قطعی تب‌ها روی پس‌زمینه‌ی تیره + حذف کادر سفید بعد از کلیک */
+.cafe-tabs button{color:#C8C8CE!important;outline:none!important;box-shadow:none!important;border-radius:0!important;background:transparent!important}
+.cafe-tabs button:hover{color:#FFFFFF!important}
+.cafe-tabs button.on{color:#FFFFFF!important;font-weight:700}
+
+/* چیدمان برنامه‌ی غذایی: ستون‌های ثابت، هدر و ردیف‌ها هم‌تراز */
+.cafe-week-row,.cafe-week-head{display:grid;grid-template-columns:84px 180px minmax(0,1fr) 44px;gap:10px;align-items:center}
+.cafe-week-head{font-weight:700;color:#1E1E21;border-bottom:1px solid #E4E4E8;padding-bottom:6px;margin-bottom:2px}
+.cafe-week-row{padding:6px 0;border-bottom:1px dashed #ECECEF}
+.cafe-week-row:last-child{border-bottom:0}
+.cafe-week-meals{display:flex;flex-direction:column;gap:6px;min-width:0}
+.cafe-meal,.cafe-week-m2{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:6px;align-items:center;min-width:0}
+.cafe-meal>input,.cafe-week-m2>input{flex:none;width:100%;min-width:0}
+.cafe-meal>input{grid-column:1}
+.cafe-meal>.ui-btn,.cafe-meal>button{white-space:nowrap}
+.cafe-side-row{display:grid;grid-template-columns:minmax(0,1fr) 84px auto;gap:6px;align-items:center}
+.cafe-side-new{grid-template-columns:minmax(0,1fr) 84px auto}
+
+/* هشدارها و کنترل‌های برنامه‌ی غذایی */
+.cafe-warn{color:#B45309;font-size:13px;font-weight:600}
+.cafe-link{background:none;border:0;padding:0;color:#B45309;font:inherit;font-weight:700;text-decoration:underline;cursor:pointer}
+.cafe-savebar{flex-wrap:wrap}
+.cafe-plan{grid-template-columns:minmax(0,1fr) 230px}
+.cafe-week-row,.cafe-week-head{grid-template-columns:80px 160px minmax(0,1fr) 40px}
+.cafe-meal{grid-template-columns:minmax(0,1fr) auto}
+.cafe-meal>input{grid-column:1 / -1}
+.cafe-meal>.cafe-side-sel,.cafe-meal>button{justify-self:start}
+.cafe-meal>button:last-child{justify-self:end}
+
+/* همراه غذا: بدون قیمت، زیر جدول روزها و تمام‌عرض */
+.cafe-plan{grid-template-columns:minmax(0,1fr)}
+.cafe-sides{border-inline-start:0;border-top:1px solid #E4E4E8;padding-top:14px;margin-top:6px;padding-inline-start:0}
+.cafe-side-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
+.cafe-side-row,.cafe-side-new{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px;align-items:center}
+.cafe-side-new{grid-template-columns:minmax(0,1fr) auto;border-top:0}
+.cafe-side-row input{min-width:0}
+.cafe-week-row,.cafe-week-head{grid-template-columns:90px 180px minmax(0,1fr) 56px}
+.cafe-meal{grid-template-columns:minmax(0,1fr) auto auto}
+.cafe-meal>input{grid-column:1 / -1}
+
+/* هر روز در یک خط: نام غذا، همراه غذا، غذای دوم و تعطیل کنار هم */
+.cafe-week-row,.cafe-week-head{grid-template-columns:84px 170px minmax(0,1fr) 44px}
+.cafe-week-meals{flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px}
+.cafe-meal{display:flex;flex-wrap:nowrap;align-items:center;gap:6px;flex:1 1 320px;min-width:0}
+.cafe-meal>input{flex:1 1 140px;min-width:0;width:auto}
+.cafe-meal>input[aria-label="غذای دوم"]{flex-basis:120px}
+.cafe-meal>.cafe-side-sel,.cafe-meal>button{flex:none;justify-self:auto}
+.cafe-meal>button:last-child{justify-self:auto}
+
+/* گزارش‌ها */
+.cafe-orders .rep-periods{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:14px;margin-bottom:16px;border-bottom:1px solid var(--c-border)}
+.rep-periods button{font:inherit;font-size:var(--fs-sm);padding:6px 14px;border-radius:99px;border:1px solid var(--c-border);background:transparent;color:var(--c-text);cursor:pointer}
+.rep-periods button.on{background:#FFC52E;border-color:#FFC52E;color:#1a1a1a;font-weight:700}
+.cafe-orders .rep-filters{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px 12px;align-items:end}
+.rep-filters .jdp{display:block;width:100%}
+.rep-filters .jdp-btn{width:100%;min-width:0;height:42px;box-sizing:border-box;border-radius:12px;padding:0 12px}
+.rep-f{display:flex;flex-direction:column;gap:6px;min-width:0;font-size:var(--fs-sm);color:var(--c-text-muted)}
+.rep-f select{width:100%;box-sizing:border-box;height:42px;border-radius:12px;border:1px solid var(--c-border);background:transparent;color:var(--c-text);padding:0 12px;font:inherit}
+.cafe-orders .rep-actions{display:flex;gap:10px;margin-top:18px;padding-top:16px;border-top:1px solid var(--c-border);align-items:center;flex-wrap:wrap}
+.rep-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media (max-width:1000px){.rep-filters,.rep-kpis{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.rep-filters{grid-template-columns:1fr}}
+@media print{.cafe-orders .rep-periods,.rep-filters,.rep-actions{display:none}}
+.cafe-orders[hidden],.cafe-stack[hidden]{display:none!important}
+
+.fin-report .ui-note{margin-bottom:8px}
+.fin-report .rep-kpis{margin-top:0}
+.fin-search{width:100%;max-width:360px;padding:8px 12px;font-family:var(--font);font-size:14px;line-height:1.6;box-sizing:border-box}
+
+/* Finance page design pass */
+.cafe-orders:has(.fin-report){gap:14px}
+.fin-report .ui-note{background:transparent;border:none;border-bottom:1px solid var(--c-border);border-radius:0;padding:0 0 10px;margin-bottom:12px;color:var(--c-muted,#666);font-size:13px}
+.fin-report .rep-kpis{gap:12px;margin-bottom:14px}
+.fin-report .ui-kpi{padding:12px 14px}
+.fin-report .ui-kpi b{font-size:22px;display:block;margin-top:4px}
+.fin-report .ui-card h3{margin-bottom:10px}
+.fin-toolbar{display:flex;justify-content:flex-start;margin:10px 0 12px}
+.fin-search{max-width:260px!important}
+.fin-actions{justify-content:flex-end;gap:12px;margin-top:16px}
+
+/* Finance page: list rows, print header, sort */
+.cafe-orders > section.ui-card:first-child{padding:14px 18px}
+.cafe-orders > section.ui-card:first-child h3{font-size:var(--fs-md,15px);opacity:.85}
+.ui-table tr.is-clickable{cursor:pointer}
+.ui-table tr.is-clickable:hover td{background:rgba(0,0,0,.04)}
+.ui-table tr.is-active td{background:rgba(255,193,7,.18)}
+.fin-print-head{display:none}
+.fin-totals td{font-weight:700;border-top:2px solid var(--c-border)}
+.fin-sort{padding:8px 12px;font-family:var(--font);font-size:14px;max-width:220px}
+@media print{.fin-print-head{display:block;margin-bottom:12px;color:#000}}
+.fin-report .ui-table th:nth-child(1){width:10%}
+.fin-report .ui-table th:nth-child(2){width:14%}
+.fin-report .ui-table th:nth-child(3){width:10%}
+.fin-report .ui-table th:nth-child(4){width:16%}
+.fin-report .ui-table th:nth-child(5),.fin-report .ui-table th:nth-child(6){width:11%}
+.fin-report .ui-table th:nth-child(7){width:15%}
+.fin-report .ui-table th:nth-child(8){width:9%}
+
+/* Cafe reports page design pass */
+.rep-page{gap:14px}
+.rep-page .ui-card h3{margin-bottom:10px}
+.rep-page .rep-kpis .ui-kpi{padding:12px 14px}
+.rep-page .rep-kpis .ui-kpi b{font-size:22px;display:block;margin-top:4px}
+.rep-page .rep-f > span{color:var(--c-muted,#555)}
+.rep-page .rep-actions{justify-content:flex-start}
+.rep-page .ui-table{margin-bottom:14px}
+.rep-page .ui-card .ui-note:last-child{background:transparent;border:none;border-top:1px solid var(--c-border);border-radius:0;padding:10px 0 0;color:var(--c-muted,#666);font-size:13px}
+.rep-page .ui-card .ui-note:only-child{border-top:none;padding:6px 0}
+
+/* گزارش کافی‌شاپ: هماهنگ با سطوح خاکستری صفحات داخلی */
+.report-refresh .ui-card{background:#e4e4e0;border:1px solid #c9cecb}
+.report-refresh .rep-filters{grid-template-columns:repeat(3,minmax(0,1fr))}
+.report-refresh .rep-f select,.report-refresh .rep-f input{width:100%;height:42px;box-sizing:border-box;border:1px solid #c5cbc7;border-radius:12px;background:#f3f4f1;padding:0 12px;color:#303736;font:inherit}
+.report-refresh .rep-caption{color:#59625f;font-size:13px;margin:4px 0 14px}
+.report-refresh .rep-kpis .ui-kpi{background:#d7dcd8;border:1px solid #c3cbc6;border-radius:14px}
+.report-refresh .rep-breakdown{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.report-refresh .rep-breakdown span{background:#d5dad6;border:1px solid #c5ccc7;border-radius:10px;padding:8px 12px;font-size:13px}
+.report-refresh .rep-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;color:#56605d}
+.report-refresh .rep-toolbar select{margin-inline-start:8px;border:1px solid #c5cbc7;border-radius:10px;background:#f3f4f1;padding:7px;font:inherit}
+.report-refresh .ui-table{background:#e8eae8}
+.report-refresh .ui-table th{background:#cfd3d1;color:#303736}
+.report-refresh .ui-table tbody tr:nth-child(even){background:#dfe2df}
+.report-refresh .rep-excess,.report-refresh .rep-warning{color:#a52c28;font-weight:700}
+.report-refresh .rep-confirm{background:#ece5d1;border:1px solid #d4bd7e;border-radius:12px;padding:12px;margin-top:14px}
+@media(max-width:1000px){.report-refresh .rep-filters{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.report-refresh .rep-filters,.report-refresh .rep-kpis{grid-template-columns:1fr}}
+
+.finance-page{gap:14px}
+.finance-page .finance-filters{display:grid;grid-template-columns:minmax(180px,1.5fr) repeat(2,minmax(130px,1fr)) auto;gap:12px;align-items:end;margin:14px 0}
+.finance-page .finance-detail-filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;margin:16px 0}
+.finance-page .rep-f input,.finance-page .rep-f select{height:42px;width:100%;border:1px solid #c5cbc7;border-radius:12px;background:#f3f4f1;padding:0 12px;color:#303736;font:inherit;box-sizing:border-box}
+.ui-app .finance-page .rep-f :is(input,select):focus-visible{outline:none;border-color:#c99519;box-shadow:0 0 0 3px #e7b33540}
+.finance-page .finance-scope{background:#d8ddda;border:1px solid #c4ccc6;border-radius:11px;padding:10px 12px;margin:12px 0;font-size:13px}
+.finance-page .finance-table-wrap{overflow-x:auto}
+.finance-page .finance-table-wrap .ui-table{min-width:780px}
+.finance-page .ui-table tr.is-active{box-shadow:inset -4px 0 #d5a116;background:#e9e3d2}
+@media(max-width:1000px){.finance-page .finance-filters,.finance-page .finance-detail-filters{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.finance-page .finance-filters,.finance-page .finance-detail-filters{grid-template-columns:1fr}}
+@media print{.finance-page .finance-table-wrap{overflow:visible}.finance-page .finance-table-wrap .ui-table{min-width:0}.finance-page .finance-scope{border:1px solid #777;color:#000;background:#fff}}
+
+/* cafe employee page polish */
+.cafe-hint{color:#55555C;font-size:13px;margin:0 0 12px}
+.cafe-barrow{display:flex;align-items:center;gap:12px}
+.cafe-barrow .cafe-bar{flex:1;margin:0}
+.cafe-barrow strong{font-size:18px;min-width:48px}
+.cafe-grid{align-items:stretch}
+.cafe-grid>.ui-card{height:100%}
+.cafe-chips{display:flex;flex-wrap:wrap;gap:8px}
+.cafe-chip{background:#fff;border:1px solid #ECECEF;border-radius:99px;padding:6px 14px;font-size:13px}
+.cafe-items{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.cafe-items .cafe-item{margin:0}
+.cafe-day em,.cafe-day small{color:#3C3C40}
+.cafe-day.off{opacity:1;color:#3C3C40;background:#F5F5F7}
+@media (max-width:700px){.cafe-items{grid-template-columns:1fr}}

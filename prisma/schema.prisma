@@ -1,0 +1,478 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+// برای سرور نهایی: provider را به "postgresql" و DATABASE_URL را عوض کنید.
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Employee {
+  id             Int       @id @default(autoincrement())
+  code           String    @unique // کد پرسنلی
+  firstName      String
+  lastName       String
+  role           String    @default("employee") // موقت؛ در مرحله‌ی دسترسی به جدول نقش‌ها می‌رود
+  active         Boolean   @default(true)
+  passwordHash   String
+  mustChangePass Boolean   @default(true)
+  failedAttempts Int       @default(0)
+  lockedUntil    DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  unitId         Int?
+  positionTitle  String?   // عنوان شغلی: رئیس، کارشناس ارشد، ...
+  positionRank   Int?      // 1=بالاترین (معاون/مدیر) ... برای مرتب‌سازی
+  managerId      Int?      // مدیر مستقیم (کد داخلی کارمند)
+  // پرونده‌ی کارمند (همه اختیاری؛ تاریخ‌ها شمسی به‌صورت متن «1403/05/12»)
+  gender         String?   // male | female
+  nationalId     String?   @unique
+  fatherName     String?
+  birthCertNo    String?
+  birthDate      String?
+  birthPlace     String?
+  maritalStatus  String?   // single | married
+  education      String?   // diploma | associate | bachelor | master | phd | other
+  fieldOfStudy   String?
+  mobile         String?
+  email          String?
+  address        String?
+  hireDate       String?
+  contractType   String?   // official | contractual | fixed | company
+  status         String    @default("active") // active | long_leave | left | retired | contract_ended
+  endDate        String?
+  endReason      String?
+  locationId     Int?
+  unit           OrgUnit?  @relation(fields: [unitId], references: [id])
+  sessions       Session[]
+  itsmRoles      ItsmRoleGrant[]
+  itsmMemberships ItsmGroupMembership[]
+  itsmRequestedTickets ItsmTicket[] @relation("ItsmRequester")
+  itsmPersonalAssets ItsmPersonalAsset[]
+  itsmBeneficiaryTickets ItsmTicket[] @relation("ItsmBeneficiary")
+  itsmAssignedTickets ItsmTicket[] @relation("ItsmAssignee")
+  itsmTicketEvents ItsmTicketEvent[]
+  itsmMessages ItsmMessage[]
+  itsmAttachments ItsmAttachment[]
+  itsmRequestedTransfers ItsmTransfer[] @relation("ItsmTransferRequester")
+  itsmDecidedTransfers ItsmTransfer[] @relation("ItsmTransferDecider")
+  itsmPreviousTransfers ItsmTransfer[] @relation("ItsmTransferAssignee")
+  itsmSlaPolicies ItsmSlaPolicyVersion[]
+  itsmReportSchedules ItsmReportSchedule[]
+  itsmReportRuns ItsmReportRun[]
+}
+
+model ItsmReportSchedule {
+  id Int @id @default(autoincrement())
+  employeeId Int
+  employee Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  profileId String
+  frequency String
+  hour Int
+  minute Int
+  day Int
+  active Boolean @default(true)
+  nextRunAt DateTime
+  leaseToken String?
+  leaseUntil DateTime?
+  lastError String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  runs ItsmReportRun[]
+  @@unique([employeeId, profileId])
+  @@index([active, nextRunAt], map: "ItsmReportSchedule_due_idx")
+}
+
+model ItsmReportRun {
+  id Int @id @default(autoincrement())
+  scheduleId Int
+  schedule ItsmReportSchedule @relation(fields: [scheduleId], references: [id], onDelete: Cascade)
+  employeeId Int
+  employee Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  dueAt DateTime
+  createdAt DateTime @default(now())
+  profileName String
+  columns Json
+  tickets Json
+  readAt DateTime?
+  @@unique([scheduleId, dueAt])
+  @@index([employeeId, createdAt(sort: Desc)], map: "ItsmReportRun_employee_idx")
+}
+
+model Session {
+  id         String   @id // توکن تصادفی
+  employeeId Int
+  employee   Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+
+  @@index([employeeId])
+}
+
+// ساختار سازمانی: واحدها تا ۸ سطح (مدیرعامل/معاونت/واحد/...) (parentId خالی = سطح ۱)
+model OrgUnit {
+  id        Int       @id @default(autoincrement())
+  name      String
+  parentId  Int?
+  parent    OrgUnit?  @relation("tree", fields: [parentId], references: [id])
+  children  OrgUnit[] @relation("tree")
+  employees Employee[]
+  headId    Int?       // مدیر/رئیس این واحد (Employee.id)
+  locationId Int?
+  location  Location? @relation(fields: [locationId], references: [id])
+  active    Boolean   @default(true)
+  createdAt DateTime  @default(now())
+  @@index([locationId])
+}
+
+// محل خدمت: دفتر یا معدن
+model Location {
+  id     Int     @id @default(autoincrement())
+  name   String  @unique
+  kind   String  @default("office") // office | mine
+  active Boolean @default(true)
+  units  OrgUnit[]
+  itsmTickets ItsmTicket[]
+  itsmPersonalAssets ItsmPersonalAsset[]
+}
+
+// تنظیمات (مثلاً تعداد سطح‌های ساختار: ۱ تا ۳)
+model Setting {
+  key   String @id
+  value String
+}
+
+model ItsmGroup {
+  id          Int                   @id @default(autoincrement())
+  name        String                @unique
+  active      Boolean               @default(true)
+  createdAt   DateTime              @default(now())
+  memberships ItsmGroupMembership[]
+  categories  ItsmCategory[]
+  tickets     ItsmTicket[]
+  outgoingTransfers ItsmTransfer[] @relation("ItsmTransferSource")
+  incomingTransfers ItsmTransfer[] @relation("ItsmTransferDestination")
+}
+
+model ItsmRoleGrant {
+  id         Int      @id @default(autoincrement())
+  employeeId Int
+  employee   Employee @relation(fields: [employeeId], references: [id], onDelete: Restrict)
+  role       String
+  createdAt  DateTime @default(now())
+
+  @@unique([employeeId, role])
+}
+
+model ItsmGroupMembership {
+  id         Int       @id @default(autoincrement())
+  employeeId Int
+  employee   Employee  @relation(fields: [employeeId], references: [id], onDelete: Restrict)
+  groupId    Int
+  group      ItsmGroup @relation(fields: [groupId], references: [id], onDelete: Restrict)
+  createdAt  DateTime  @default(now())
+
+  @@unique([employeeId, groupId])
+  @@index([groupId])
+}
+
+model ItsmAuditEvent {
+  id         Int      @id @default(autoincrement())
+  actorId    Int
+  action     String
+  targetType String
+  targetId   Int
+  details    Json
+  createdAt  DateTime @default(now())
+
+  @@index([actorId, createdAt])
+  @@index([targetType, targetId])
+}
+
+model ItsmCategory {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  groupId   Int
+  group     ItsmGroup @relation(fields: [groupId], references: [id], onDelete: Restrict)
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  tickets   ItsmTicket[]
+
+  @@index([groupId])
+}
+
+model ItsmTicket {
+  id            Int      @id @default(autoincrement())
+  title         String
+  description   String
+  contactExtension String?
+  categoryId    Int
+  groupId       Int
+  requesterId   Int
+  beneficiaryId Int
+  assigneeId    Int?
+  assetId       Int?
+  personalAssetId Int?
+  status        String   @default("waiting_assignment")
+  locationId    Int?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  category      ItsmCategory @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  group         ItsmGroup @relation(fields: [groupId], references: [id], onDelete: Restrict)
+  requester     Employee @relation("ItsmRequester", fields: [requesterId], references: [id], onDelete: Restrict)
+  beneficiary   Employee @relation("ItsmBeneficiary", fields: [beneficiaryId], references: [id], onDelete: Restrict)
+  assignee      Employee? @relation("ItsmAssignee", fields: [assigneeId], references: [id], onDelete: Restrict)
+  location      Location? @relation(fields: [locationId], references: [id], onDelete: Restrict)
+  asset         ItsmAsset? @relation(fields: [assetId], references: [id], onDelete: Restrict)
+  personalAsset ItsmPersonalAsset? @relation(fields: [personalAssetId], references: [id], onDelete: Restrict)
+  events        ItsmTicketEvent[]
+  messages      ItsmMessage[]
+  attachments   ItsmAttachment[]
+  transfers     ItsmTransfer[]
+
+  @@index([requesterId, createdAt])
+  @@index([beneficiaryId, createdAt])
+  @@index([groupId, status])
+  @@index([assigneeId, status])
+  @@index([assetId])
+  @@index([personalAssetId])
+}
+
+model ItsmTicketEvent {
+  id        Int      @id @default(autoincrement())
+  ticketId  Int
+  actorId   Int
+  action    String
+  createdAt DateTime @default(now())
+  ticket    ItsmTicket @relation(fields: [ticketId], references: [id], onDelete: Restrict)
+  actor     Employee @relation(fields: [actorId], references: [id], onDelete: Restrict)
+
+  @@index([ticketId, createdAt])
+}
+
+model ItsmMessage {
+  id        Int      @id @default(autoincrement())
+  ticketId  Int
+  authorId  Int
+  body      String
+  internal  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  ticket    ItsmTicket @relation(fields: [ticketId], references: [id], onDelete: Restrict)
+  author    Employee @relation(fields: [authorId], references: [id], onDelete: Restrict)
+
+  @@index([ticketId, createdAt])
+}
+
+model ItsmAttachment {
+  id         Int      @id @default(autoincrement())
+  ticketId   Int
+  uploaderId Int
+  filename   String
+  size       Int
+  content    Bytes
+  createdAt  DateTime @default(now())
+  ticket     ItsmTicket @relation(fields: [ticketId], references: [id], onDelete: Restrict)
+  uploader   Employee @relation(fields: [uploaderId], references: [id], onDelete: Restrict)
+
+  @@index([ticketId, createdAt])
+}
+
+model ItsmTransfer {
+  id                   Int       @id @default(autoincrement())
+  ticketId             Int
+  sourceGroupId        Int
+  destinationGroupId   Int
+  previousAssigneeId   Int?
+  previousStatus       String
+  requestedById        Int
+  reason               String
+  note                 String    @default("")
+  state                String    @default("pending")
+  decidedById          Int?
+  decisionReason       String?
+  createdAt            DateTime  @default(now())
+  decidedAt            DateTime?
+  ticket               ItsmTicket @relation(fields: [ticketId], references: [id], onDelete: Restrict)
+  sourceGroup          ItsmGroup @relation("ItsmTransferSource", fields: [sourceGroupId], references: [id], onDelete: Restrict)
+  destinationGroup     ItsmGroup @relation("ItsmTransferDestination", fields: [destinationGroupId], references: [id], onDelete: Restrict)
+  previousAssignee     Employee? @relation("ItsmTransferAssignee", fields: [previousAssigneeId], references: [id], onDelete: Restrict)
+  requestedBy          Employee @relation("ItsmTransferRequester", fields: [requestedById], references: [id], onDelete: Restrict)
+  decidedBy            Employee? @relation("ItsmTransferDecider", fields: [decidedById], references: [id], onDelete: Restrict)
+
+  @@index([destinationGroupId, state])
+  @@index([ticketId, createdAt])
+}
+
+model ItsmSlaPolicyVersion {
+  id          Int      @id @default(autoincrement())
+  policy      Json
+  createdById Int?
+  createdAt   DateTime @default(now())
+  createdBy   Employee? @relation(fields: [createdById], references: [id], onDelete: Restrict)
+
+  @@index([createdAt, id])
+}
+
+// Foreign keys for these models are defined in the SQL migration.
+model ItsmAssetCategory {
+  id       Int @id @default(autoincrement())
+  name     String @unique
+  parentId Int?
+  active   Boolean @default(true)
+}
+
+model ItsmPersonalAsset {
+  id Int @id @default(autoincrement())
+  employeeId Int
+  locationId Int
+  name String
+  computerName String @default("")
+  cpu String @default("")
+  ram String @default("")
+  hdd String @default("")
+  ssd String @default("")
+  vga String @default("")
+  ip String @default("")
+  notes String @default("")
+  active Boolean @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  employee Employee @relation(fields: [employeeId], references: [id], onDelete: Restrict, map: "ItsmPersonalAsset_employee_fkey")
+  location Location @relation(fields: [locationId], references: [id], onDelete: Restrict, map: "ItsmPersonalAsset_location_fkey")
+  tickets ItsmTicket[]
+  @@index([employeeId, locationId, active])
+}
+
+model ItsmWarehouse {
+  id         Int @id @default(autoincrement())
+  name       String
+  groupId    Int
+  locationId Int
+  active     Boolean @default(true)
+  @@unique([groupId, locationId])
+}
+
+model ItsmAsset {
+  id           Int @id @default(autoincrement())
+  code         String @unique
+  name         String
+  categoryId   Int
+  warehouseId  Int
+  serial       String @default("")
+  brand        String @default("")
+  model        String @default("")
+  status       String @default("available")
+  assignedToId Int?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @default(now())
+  tickets      ItsmTicket[]
+  @@index([assignedToId])
+}
+
+model ItsmAssetEvent {
+  id          Int @id @default(autoincrement())
+  assetId     Int
+  actorId     Int
+  recipientId Int?
+  action      String
+  note        String @default("")
+  createdAt   DateTime @default(now())
+  @@index([assetId, createdAt])
+}
+
+model ItsmWarehouseCustodian {
+  id          Int @id @default(autoincrement())
+  warehouseId Int
+  employeeId  Int
+  createdAt   DateTime @default(now())
+  @@unique([warehouseId, employeeId])
+  @@index([employeeId])
+}
+
+model ItsmAssetRepair {
+  id           Int @id @default(autoincrement())
+  assetId      Int
+  reportedById Int
+  report       String
+  outcome      String
+  state        String @default("pending")
+  decidedById  Int?
+  decisionNote String?
+  createdAt    DateTime @default(now())
+  decidedAt    DateTime?
+  ticketId     Int?
+  @@index([assetId, createdAt])
+  @@index([ticketId])
+}
+
+model ItsmAssetTransfer {
+  id                     Int @id @default(autoincrement())
+  assetId                Int
+  sourceWarehouseId      Int
+  destinationWarehouseId Int
+  requestedById          Int
+  reason                 String
+  state                  String @default("pending")
+  decidedById            Int?
+  decisionNote           String?
+  createdAt              DateTime @default(now())
+  decidedAt              DateTime?
+  @@index([destinationWarehouseId, state])
+}
+
+model ItsmConsumable {
+  id Int @id @default(autoincrement())
+  warehouseId Int
+  name String
+  code String @unique
+  unit String
+  quantity Int @default(0)
+  minimum Int @default(0)
+  createdAt DateTime @default(now())
+  @@index([warehouseId])
+}
+
+model ItsmConsumableEvent {
+  id Int @id @default(autoincrement())
+  itemId Int
+  actorId Int
+  recipientId Int?
+  action String
+  quantity Int
+  balance Int
+  note String @default("")
+  createdAt DateTime @default(now())
+  @@index([itemId, createdAt])
+}
+
+model ItsmTicketSla {
+  id Int @id @default(autoincrement())
+  ticketId Int
+  policyVersionId Int?
+  policy Json
+  priority String
+  state String
+  startedAt DateTime
+  segmentStartedAt DateTime?
+  elapsedMs BigInt @default(0)
+  responseAt DateTime?
+  responseElapsedMs BigInt?
+  endedAt DateTime?
+  createdById Int
+  reason String @default("")
+  @@index([ticketId, startedAt])
+}
+
+model ItsmSlaNotice {
+  id Int @id @default(autoincrement())
+  slaId Int
+  ticketId Int
+  recipientId Int
+  metric String
+  kind String
+  createdAt DateTime @default(now())
+  readAt DateTime?
+  @@unique([slaId, recipientId, metric, kind])
+  @@index([recipientId, readAt])
+}

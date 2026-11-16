@@ -1,0 +1,90 @@
+.cafe-manager{display:grid;gap:14px;color:#303738}
+.cafe-manager .crumb,.cafe-manager .cafe-h{margin:0}
+.cafe-manager .cafe-today{display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:#eae4d4;border-color:#d4c49b;color:#303738;margin:0}
+.cafe-manager .ui-kpis{margin:0;gap:10px}
+.cafe-manager .ui-kpi,.cafe-manager .ui-card{background:#e4e4e0;border:1px solid #cdd1cd;border-radius:15px;box-shadow:0 8px 24px #2027292c;color:#303738}
+.cafe-manager .ui-kpi{padding:12px 15px}
+.cafe-manager .cafe-tabs{margin:0;gap:7px;flex-wrap:wrap;border:0}
+.cafe-manager .cafe-tabs button{border:1px solid #ffffff42!important;border-radius:10px!important;background:#ffffff12!important;padding:9px 15px;color:#e7e9e5!important}
+.cafe-manager .cafe-tabs button.on{background:#edbc43!important;border-color:#edbc43!important;color:#292d2c!important}
+.cafe-manager .cafe-tabs button:focus-visible{outline:2px solid #f1c257!important;outline-offset:2px!important}
+.cafe-manager .ui-table th{background:#cfd3d1;color:#303738}
+.cafe-manager .ui-table tbody tr:nth-child(odd) td{background:#e8eae8}
+.cafe-manager .ui-table tbody tr:nth-child(even) td{background:#dfe2df}
+.cafe-manager .cafe-guest-name,.cafe-manager input:not([type=checkbox]),.cafe-manager select{background:#f4f5f2;border:1px solid #c9cfca;border-radius:9px;color:#303738}
+.cafe-manager .cafe-guest-name{max-width:480px;margin:0 0 12px}
+.cafe-manager .cafe-menu-row input{min-width:0}
+.cafe-manager .cafe-savebar{background:#e4e4e0;border:1px solid #cdd1cd;border-radius:12px;box-shadow:0 -4px 14px #20272920}
+.cafe-manager .cafe-week-head{color:#444e4b}
+.cafe-manager .cafe-week-row{border-color:#d1d5cf}
+.cm-error{padding:12px;border-radius:10px;background:#f3e5e2;color:#963c37}
+.cm-excess{display:inline-block;padding:4px 8px;border-radius:8px;background:#f3e5e2;color:#963c37;font-weight:700}
+.cm-filters{display:grid;grid-template-columns:minmax(150px,2fr) minmax(125px,1fr) minmax(145px,1fr) auto;gap:8px;margin-bottom:14px}
+.cm-filters input,.cm-filters select,.cm-reset{width:100%;box-sizing:border-box;padding:9px 10px;font:inherit;font-size:12px}
+.cm-filters .jdp{display:block;min-width:0}.cm-filters .jdp-btn{width:100%;min-width:0;height:100%;justify-content:space-between}
+.cm-reset{background:#f4f5f2;border:1px solid #c9cfca;border-radius:9px;color:#303738;cursor:pointer;white-space:nowrap}
+.cm-category{margin:8px 0;border:1px solid #c9cfca;border-radius:10px;background:#eef0ec;overflow:hidden}
+.cm-category summary{cursor:pointer;padding:10px 12px;background:#d9ded9;font-weight:700}
+.cm-category summary small{margin-inline-start:8px;font-weight:400;color:#68716e}
+.cm-category .cafe-menu-list{padding:9px}.cm-category .cafe-menu-item{padding:8px;background:#e4e7e2;border:1px solid #d0d5cf;border-radius:9px}
+.cm-availability{grid-column:1/-1;display:flex;align-items:center;gap:6px;font-size:12px;color:#58615e}.cm-availability input{width:auto!important;accent-color:#b3871c}
+.cm-credit-fields{border:0;margin:0;padding:0;min-width:0;display:grid;gap:20px}
+.cm-order-tab>.ui-card{min-width:0}
+.cm-table-scroll{max-height:430px;overflow:auto;border:1px solid #cbd1ca;border-radius:10px}
+.cm-table-scroll .ui-table{margin:0;min-width:600px}
+.cm-table-scroll .ui-table th{position:sticky;top:0;z-index:1}
+.cm-table-scroll .ui-table th,.cm-table-scroll .ui-table td{padding:9px 10px;vertical-align:middle}
+.cm-table-scroll .ui-table td{border-color:#d2d6d0}
+.cm-table-scroll .cafe-guest-name{max-width:none;margin:0}
+.cm-group-table{max-height:none}
+.cm-credit-fields .ui-card{min-width:0}
+.cm-credit-fields .ui-card>.ui-btn{margin-top:12px}
+.cm-credit-fields .ui-table .ui-btn.danger{background:#eee5e1;border:1px solid #d8c1ba;color:#98473d;padding:6px 10px}
+.cm-credit-fields .ui-table .ui-btn.danger:hover{background:#e8d8d3}
+.cm-credit-fields .ui-note{margin-top:12px;background:#eef0eb;border:1px solid #d2d6d0;border-radius:10px;color:#59635e}
+.cm-credit-fields .rep-actions{display:flex;align-items:center;gap:8px;margin:0 0 12px;padding:0;border:0}
+.cm-credit-fields .rep-actions .cafe-guest-name{max-width:300px;margin:0}
+.cm-credit-fields input[type=checkbox],.cafe-manager .cafe-week input[type=checkbox]{accent-color:#b3871c}
+.cafe-manager .cafe-copy{padding:10px 12px;border:1px solid #d2d6d0;border-radius:10px;background:#eef0eb;color:#616b66;flex-wrap:wrap}
+.cafe-manager .cafe-week{gap:7px}
+.cafe-manager .cafe-week-head{padding:8px 10px;border:0;border-radius:9px;background:#cfd3d1;color:#48534e}
+.cafe-manager .cafe-week-row:not(.cafe-week-head){padding:8px 10px;border:1px solid #d0d5ce;border-radius:10px;background:#e9ebe7}
+.cafe-manager .cafe-week-row.is-off{background:#e0e2de;opacity:1}
+.cafe-manager .cafe-week-row .jdp{display:block;min-width:0}
+.cafe-manager .cafe-week-row .jdp-btn{width:100%;min-width:0;justify-content:space-between;background:#f4f5f2;border-color:#c9cfca}
+.cafe-manager .cafe-week .ui-btn.danger,.cafe-manager .cafe-sides .ui-btn.danger{background:#eee5e1;border:1px solid #d8c1ba;color:#98473d}
+.cafe-manager .cafe-sides{margin-top:4px;padding:12px;border:1px solid #d0d5ce;border-radius:10px;background:#e9ebe7}
+.cafe-manager .cafe-savebar:not(.is-dirty){position:static;box-shadow:none;justify-content:flex-start}
+.cm-employee-filters{display:grid;grid-template-columns:minmax(150px,2fr) minmax(140px,1fr) auto;gap:8px;margin-bottom:12px}
+.cm-employee-filters .cafe-guest-name{max-width:none;margin:0}.cm-employee-filters select{padding:9px;font:inherit;font-size:12px}
+.cm-groups-section,.cm-products-section{padding:15px;border:1px solid #ced2cb;border-radius:13px;background:#e9eae6}
+.cm-section-heading{display:flex;justify-content:space-between;align-items:start;gap:12px;margin-bottom:13px}
+.cm-section-heading .cafe-sub{margin:0 0 5px;font-size:14px;color:#303938}
+.cm-section-heading p{margin:0;color:#6a7470;font-size:11px;line-height:1.7}
+.cm-section-heading>span{flex:none;padding:5px 9px;border-radius:8px;background:#daddd7;color:#56615d;font-size:11px}
+.cafe-manager .cm-group-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.cafe-manager .cafe-menu-grp{grid-template-columns:minmax(0,1fr) auto;gap:6px;padding:6px;background:#dfe2dc;border:1px solid #d0d5ce;border-radius:10px}
+.cafe-manager .cafe-menu-grp input{background:#f2f3f0}
+.cafe-manager .cafe-menu-grp .ui-btn,.cafe-manager .cm-category .ui-btn.danger{width:auto;min-width:68px;padding:7px 10px;background:#eee5e1;border:1px solid #d8c1ba;color:#98473d;font-size:11px}
+.cafe-manager .cafe-menu-grp .ui-btn:not(.danger){background:#eadbb4;border-color:#d8be7f;color:#57451a}
+.cafe-manager .cafe-menu-grp .ui-btn.danger:hover,.cafe-manager .cm-category .ui-btn.danger:hover{background:#e8d8d3;border-color:#caa69c}
+.cafe-manager .cm-menu-search{display:block;max-width:none;margin:0 0 12px}
+.cafe-manager .cm-category{border-color:#cbd1ca;border-radius:10px;background:#e5e8e3}
+.cafe-manager .cm-category summary{list-style:none;display:flex;align-items:center;gap:9px;padding:11px 13px;border-radius:9px;background:#d9ded8;color:#333d39;font-size:13px;outline:none}
+.cafe-manager .cm-category summary::-webkit-details-marker{display:none}
+.cafe-manager .cm-category summary::before{content:'+';display:grid;place-items:center;width:23px;height:23px;flex:none;border-radius:7px;background:#ece5ce;color:#8d6c1c;font-size:17px;font-weight:400;line-height:1}
+.cafe-manager .cm-category[open] summary::before{content:'−'}
+.cafe-manager .cm-category summary:focus-visible{outline:2px solid #bd8c1d;outline-offset:-3px}
+.cafe-manager .cm-category summary small{margin-inline-start:auto;padding:4px 8px;border-radius:7px;background:#edf0eb;color:#64706a}
+.cafe-manager .cm-category .cafe-menu-list{gap:7px;padding:9px}
+.cafe-manager .cm-category .cafe-menu-item{grid-template-columns:minmax(120px,1.3fr) minmax(100px,.75fr) minmax(130px,1fr) auto auto;align-items:center;gap:7px;padding:9px;background:#dfe3dd;border-color:#cbd1ca}
+.cafe-manager .cm-category .cafe-menu-item .cm-availability{grid-column:auto;grid-row:1;white-space:nowrap;padding:0 4px}
+.cafe-manager .cm-category .cafe-menu-item .cafe-product-description{grid-column:1/-1;background:#edf0eb}
+.cafe-manager .cm-category .cafe-gp-btn{background:#f2f3f0;border-color:#c9cfca}
+.cafe-manager .cafe-menu-new{padding:12px;margin-top:12px;background:#e0e4dd;border:1px solid #cbd1ca;border-radius:10px}
+.cafe-manager .cafe-savebar{padding:9px 12px}
+@media(max-width:850px){.cm-filters{grid-template-columns:1fr 1fr}.cafe-manager .cafe-week-row,.cafe-manager .cafe-week-head{grid-template-columns:70px 150px minmax(0,1fr) 35px}.cafe-manager .cafe-menu-item{grid-template-columns:1fr 1fr}}
+@media(max-width:850px){.cm-table-scroll .ui-table{min-width:600px}.cm-credit-fields .rep-actions .cafe-guest-name{max-width:none}}
+@media(max-width:850px){.cafe-manager .cm-category .cafe-menu-item{grid-template-columns:1fr 1fr}.cafe-manager .cm-category .cafe-menu-item .cm-availability{grid-column:auto;grid-row:auto}}
+@media(max-width:540px){.cm-filters,.cm-employee-filters{grid-template-columns:1fr}.cafe-manager .cafe-week-head{display:none}.cafe-manager .cafe-week-row{grid-template-columns:1fr 1fr}.cafe-manager .cafe-week-meals{grid-column:1/-1}.cafe-manager .cafe-menu-item{grid-template-columns:1fr}.cafe-manager .cafe-product-description,.cm-availability{grid-column:1}}
+@media(max-width:540px){.cafe-manager .cm-group-list,.cafe-manager .cm-category .cafe-menu-item{grid-template-columns:1fr}.cafe-manager .cm-category .cafe-menu-item .cafe-product-description{grid-column:1}}

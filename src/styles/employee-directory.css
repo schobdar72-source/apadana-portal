@@ -1,0 +1,47 @@
+.ui-col main .emp-head .emp-title{color:#fff}.ui-col main .emp-head .emp-sub{color:#e5e7e6;opacity:1}
+.employee-directory > .ui-card{padding:22px;background:#e4e4e0!important;border:1px solid #d0d2cf;border-radius:18px;box-shadow:0 8px 24px #2027292c}
+.emp-filter-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.emp-filter-heading strong{display:block;color:#303438;font-size:15px}
+.emp-filter-heading p{margin:5px 0 0;color:#74777a;font-size:12px;line-height:1.8}
+.emp-filter-heading>span{display:grid;place-items:center;width:37px;height:37px;flex:none;border-radius:11px;background:#fff0c7;color:#9c730f;font-size:25px}
+.emp-filters-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 14px;align-items:end;padding:4px 14px 14px;border:1px solid #e8e6df;border-radius:13px;background:#efeeeb}
+.emp-filters-grid>div{min-width:0}.employee-directory .emp-filters-grid .ui-label{margin:9px 0 5px;color:#555a5e;font-size:12px;font-weight:600}
+.employee-directory .emp-filters-grid .ui-field{min-height:40px;border:1px solid #deddd7;border-radius:9px;background:#fff;box-shadow:none}
+.ui-app .employee-directory .emp-filters-grid .ui-field:focus-within{border-color:#c99519;box-shadow:0 0 0 3px #e7b33540}
+.ui-app .employee-directory .emp-filters-grid .ui-field input:focus-visible{outline:none}
+.employee-directory .emp-filters-grid .pk-btn{min-width:0;padding:8px 11px}.employee-directory .emp-filters-grid .pk-btn span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.emp-active-scope{margin:9px 2px 0;color:#80652a;font-size:11px}
+.emp-results-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:20px 2px 10px}
+.emp-results-heading h2{margin:0;color:#303438;font-size:15px}.emp-results-heading p{margin:4px 0 0;color:#777b7e;font-size:12px}
+.emp-reset{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border:1px solid #e0d5bb;border-radius:9px;background:#fffaf0;color:#805e13;font:inherit;font-size:12px;cursor:pointer}.emp-reset:hover{background:#fff0cb}.emp-reset span{font-size:17px;line-height:1}
+.employee-directory .emp-scroll{max-height:520px;margin-top:0;border:1px solid #c6cac8;border-radius:12px;background:#e5e7e5;overflow:auto}
+.employee-directory .emp-table{width:100%;min-width:720px;border-collapse:collapse;table-layout:fixed}
+.employee-directory .emp-table thead th{padding:12px 11px;background:#cfd3d1;border-bottom:1px solid #bec4c1;color:#3c4345;font-size:12px;text-align:start}
+.employee-directory .emp-table tbody tr{background:#e8eae8;box-shadow:none}.employee-directory .emp-table tbody tr:nth-child(even){background:#dfe2df}
+.employee-directory .emp-table tbody tr:hover{background:#e9e3d1;box-shadow:none}.employee-directory .emp-table tbody tr.is-sel td{background:#e7dbb9}
+.employee-directory .emp-table td{padding:13px 11px;border-bottom:1px solid #ccd1ce;color:#353d3f;font-size:12px;vertical-align:middle}
+.employee-directory .emp-table tbody tr:last-child td{border-bottom:0}.employee-directory .emp-person-name{display:block;font-size:13px;font-weight:700;color:#292d30}
+.employee-directory button.emp-person-name{padding:0;border:0;background:transparent;text-align:start;font-family:inherit;cursor:pointer}.employee-directory button.emp-person-name:hover{text-decoration:underline}.employee-directory button.emp-person-name:focus-visible{outline:2px solid #a87913;outline-offset:3px;border-radius:3px}
+.emp-missing-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px;white-space:normal}.emp-missing-tags span{display:inline-block;padding:3px 7px;border:1px solid #edd4af;border-radius:7px;background:#fff6e9;color:#9a5d1a;font-size:10px;line-height:1.5;white-space:nowrap}
+.employee-directory .emp-unit,.employee-directory .emp-location{display:block;white-space:normal;overflow-wrap:anywhere;line-height:1.7}.employee-directory .emp-location{margin-top:4px;color:#656e70;font-size:10px}
+.emp-form{margin-top:18px;scroll-margin-top:18px}.emp-form>.ui-card{background:#e4e4e0!important;border:1px solid #d0d2cf;border-radius:18px;box-shadow:0 8px 24px #2027292c}.emp-form-hint{color:#62696b;font-size:12px;line-height:1.8}.emp-form-error{margin:10px 0;padding:10px 12px;border:1px solid #e0b7ae;border-radius:9px;background:#f8e8e3;color:#9c3327;font-size:13px}.emp-form .emp-tabs{gap:8px;border-color:#cbd0cc}.emp-form .emp-tab{border-radius:9px 9px 0 0;color:#51585a}.emp-form .emp-tab.is-on{background:#f1e6c4;color:#4c3b13}.emp-form .emp-foot{background:#e4e4e0;padding:12px;z-index:2}.emp-form .emp-sec{color:#343b3c}
+.ui-app .emp-form .ui-field:focus-within{border-color:#c99519;box-shadow:0 0 0 3px #e7b33540}
+.ui-app .emp-form .ui-field :is(input,textarea):focus-visible{outline:none}
+.ui-app .emp-form .emp-tab:focus-visible{outline:0;box-shadow:inset 0 0 0 2px #b88819;border-radius:9px 9px 0 0}
+.ui-app .emp-modal{width:min(820px,100%);padding:22px;background:#e4e4e0;border:1px solid #c9cdca;border-radius:18px;box-shadow:0 18px 50px #14191a55}
+.ui-app .emp-modal-head{gap:16px;margin-bottom:18px;color:#303638;font-size:16px}
+.ui-app .emp-modal>.ui-card{padding:0;background:transparent!important;border:0;box-shadow:none}
+.emp-io-content{display:grid;gap:14px}.emp-io-section{padding:16px;border:1px solid #d2d5d0;border-radius:12px;background:#edede9}
+.emp-io-heading{display:grid;gap:5px;margin-bottom:13px}.emp-io-heading strong{color:#333a3b;font-size:14px}.emp-io-heading span{color:#626b6b;font-size:12px;line-height:1.8}
+.emp-io-actions,.emp-io-import{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end}.emp-io-mode{width:min(100%,320px);min-width:0}.emp-io-import .ui-label{margin-top:0}
+@media(max-width:600px){.ui-app .emp-modal{padding:15px}.emp-io-section{padding:12px}.emp-io-actions .ui-btn{width:100%}}
+@media(max-width:900px){.emp-filters-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){
+  .employee-directory > .ui-card{padding:15px}.emp-filters-grid{grid-template-columns:1fr;padding:4px 11px 12px}.emp-results-heading{align-items:flex-start}
+  .employee-directory .emp-table{min-width:0}.employee-directory .emp-table colgroup,.employee-directory .emp-table thead{display:none}
+  .employee-directory .emp-table,.employee-directory .emp-table tbody,.employee-directory .emp-table tr,.employee-directory .emp-table td{display:block;width:100%;box-sizing:border-box}
+  .employee-directory .emp-table tbody tr{padding:9px 12px;border-bottom:1px solid #e4e5e1}.employee-directory .emp-table tbody tr:last-child{border-bottom:0}
+  .employee-directory .emp-table td{display:flex;align-items:flex-start;gap:10px;padding:5px 0;border:0;white-space:normal;overflow:visible}
+  .employee-directory .emp-table td::before{content:attr(data-label);width:70px;flex:none;color:#888;font-size:11px}
+  .employee-directory .emp-table td:nth-child(2){flex-wrap:wrap}.employee-directory .emp-table td:nth-child(2) .emp-missing-tags{width:100%;margin:0 80px 0 0}
+}
